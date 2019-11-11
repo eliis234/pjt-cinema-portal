@@ -1,0 +1,1 @@
+const HOST_NAME = 'http://movie0706.cybersoft.edu.vn/api/'
