@@ -3,23 +3,28 @@ import Item from "./Item";
 
 export default class Carousel extends Component {
   _source = []
-  constructor(props){
+  constructor(props) {
     super(props)
     this._source = initData
   }
-  
+
   _renderControl = () => {
     return this._source.map((item, index) => {
       return (
-        <li data-target="#caroudelMovie" data-slide-to={index} className={index <= 0 ? 'active' : ''}/>
+        <li
+          key={index}
+          data-target="#caroudelMovie"
+          data-slide-to={index}
+          className={index <= 0 ? 'active' : ''}
+        />
       )
     })
   }
 
-  _renderItem = ()=>{
+  _renderItem = () => {
     return this._source.map((item, index) => {
       return (
-        <Item key={index} data={{img: item.img, active: index <= 0}} />
+        <Item key={index} data={{ img: item.img, active: index <= 0 }} />
       )
     })
   }
