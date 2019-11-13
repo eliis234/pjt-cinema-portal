@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Carousel from "./Carousel";
+import Carousel from "./carousel/Carousel";
 import ListFilm from "./ListFilm";
 import Filmdangchieu from './Filmdangchieu'
 import Filmsapchieu from './Filmsapchieu'
@@ -10,7 +10,13 @@ export default class Home extends Component {
       <>
         <Carousel />
         <ListFilm />
-        <Filmdangchieu /> <Filmsapchieu />
+        <div className="container">
+          <div className="col-12">
+            <Filmdangchieu />
+            <Filmsapchieu />
+          </div>
+        </div> 
+        
         {/* <Footer /> */}
       </>
     );
