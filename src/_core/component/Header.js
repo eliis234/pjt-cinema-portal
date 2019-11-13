@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
     render() {
@@ -11,35 +11,26 @@ export default class Header extends Component {
                         <span className="mx-2 border-right pr-2 font-weight-bold">01634643124</span>
                         <i className="fa fa-search" />
                     </p>
-                    <nav className="navbar navbar-expand-lg navbar-dark  p-0">
+                    <nav className="navbar navbar-expand-lg navbar-dark p-0">
                         <NavLink to="/">
-                            <img src="/img/logo.svg" />
+                            <img src="/img/logo.svg" alt="logo" />
                         </NavLink>
-         
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item active px-2">
-                                    <a className="nav-link" href="#">HOME</a>
+                                    <NavLink to="/" className="nav-link">HOME</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">WHAT'S ON</a>
+                                    <NavLink to="/test" className="nav-link">DETAIL</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">SHORTCODES</a>
+                                    <NavLink to="/test" className="nav-link">SIGN IN</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">CONTACT</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" data-toggle="modal" data-target="#modalForm">
-                                        SIGN IN
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" data-toggle="modal" data-target="#modalForm">SIGN UP</a>
+                                    <NavLink to="/test" className="nav-link">SIGN UP</NavLink>
                                 </li>
                             </ul>
                         </div>
