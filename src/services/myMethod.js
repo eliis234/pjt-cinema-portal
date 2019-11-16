@@ -9,7 +9,12 @@ export const post = (url, data) => {
   return axios.post(domain + url, data);
 }
 
+ export const put = (url, data) => {
+  return axios.put(domain + url, data);
+}
+
+
 const methodGetApi = {
-  get, post
+  get, post, put
 }
 export default methodGetApi
