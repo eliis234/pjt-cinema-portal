@@ -1,0 +1,49 @@
+<div class="main-bg">
+    <!-- title -->
+    <div style="height: 50px"></div>
+    <!-- //title -->
+    <!-- content -->
+    <div class="sub-main-w3">
+        <div class="bg-content-w3pvt">
+            <div class="top-content-style">
+                <img src="../../../assets/images/user.jpg" alt="">
+            </div>
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                <p class="legend">Đăng nhập<span class="fa fa-hand-o-down"></span></p>
+                <div class="input">
+                    <input type="email" placeholder="Tài khoản" name="TaiKhoan" #TaiKhoan="ngModel" ngModel required />
+                    <span class="fa fa-envelope"></span>
+                </div>
+                <div class="input">
+                    <input type="password" placeholder="Mật khẩu" name="MatKhau" #MatKhau="ngModel" ngModel required />
+                    <span class="fa fa-unlock"></span>
+                </div>
+                <button type="submit" class="btn submit">
+                    <span class="fa fa-sign-in"></span>
+                </button>
+            </form>
+            <a href="#" class="bottom-text-w3ls">Quên mật khẩu?</a>
+        </div>
+    </div>
+    <!-- //content -->
+    <!-- copyright -->
+    <div class="copyright">
+        <h2>&copy; 2019 Admin Login Form. All rights reserved | Design by
+            <a routerLink="/home-page" target="_blank">MTN</a>
+        </h2>
+    </div>
+    <!-- //copyright -->
+</div>
+
+<div class="modal fade" id="modalFail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    {{alert}}
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

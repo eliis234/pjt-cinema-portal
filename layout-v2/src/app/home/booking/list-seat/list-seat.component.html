@@ -1,0 +1,81 @@
+<ng-container *ngIf="mangGhe">
+  <div class="choose-chair">
+    <div class="col-md-12 choose-chair_top">
+      <div class="row">
+        <div class="col-md-6 d-flex left_title">
+          <div class="logocinema">
+            <img class="logo" src="../../../assets/images/rapBHD.png" />
+          </div>
+          <div class="contentcinema">
+            <p class="address m-0">
+              <span class="pcinema" style="color:#8bc541">BHD Star</span>
+              <span class="cinemaname"> - Vincom 3/2</span>
+            </p>
+            <ng-container *ngFor="let item of movie.LichChieu | slice: 0:1">
+              <p class="hour m-0">
+                {{ item.NgayChieuGioChieu | date: "hh:mm" }} - {{item.Rap.TenRap}}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="righttitle">
+            <p class="info1 m-0">thời gian giữ ghế</p>
+            <p class="info2 m-0">
+              <span class="minute">0{{ minutes }}:{{ seconds }} </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 choose-chair_bottom">
+      <div class="room">
+        <div class="screen text-center">
+          <img src="../../../assets/images/screen.png" alt="" />
+        </div>
+        <div class="list_chair">
+          <ng-container *ngFor="let item of mangGhe; let index = index">
+            <app-item-seat
+              [ghe]="item"
+              (eventGhe)="chonGhe($event)"
+            ></app-item-seat>
+            <br *ngIf="(index + 1) % 9 === 0" />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="typeseats">
+      <div class="row">
+        <div class="col-md-12 text-center typeseats-box">
+          <span class="typeseat">
+            <span class="colorseat colornull"></span>
+            <span class="nameseat">Ghế trống</span>
+          </span>
+          <span class="typeseat">
+            <span class="colorseat colorchoosing"></span>
+            <span class="nameseat">Đang chọn</span>
+          </span>
+          <span class="typeseat">
+            <span class="colorseat colorchosen"></span>
+            <span class="nameseat">Đã chọn</span>
+          </span>
+          <span class="typeseat">
+            <span class="colorseat colornever"></span>
+            <span class="nameseat">Không thể chọn</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5
+          phút. <a (click)="chuyenTrang()">Đặt vé lại</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,37 @@
+.modal{
+    .modal-dialog{
+        margin-left: 25%;
+        margin-top: 5%;
+        .modal-content{
+            height: 450px;
+            width: 150%;    
+            position: relative;    
+        }
+
+        .modal-close{
+            background: none;
+            width: 50px;
+            height: 50px;
+            line-height: 25px;
+            position: absolute;
+            right: -40px;
+            bottom: -40px;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+            &:focus{
+                outline: none;
+            }
+
+            i{
+                color: white;
+                font-size: 30px;
+                transition: all 0.5s;
+                &:hover{
+                    color: #00aff0;
+                }
+            }
+        }
+    }
+}

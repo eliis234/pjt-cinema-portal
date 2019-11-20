@@ -1,0 +1,112 @@
+<div class="rightbooking">
+  <div class="contentbooking">
+    <div class="total">
+      <p class="totalcost mb-0">
+        {{ tongTien + totalCostCombo | number: "1.0-5" }} đ
+      </p>
+    </div>
+    <div class="filmname">
+      <p class="mb-0 font-weight-bold">
+        <span class="ageType">C13</span>{{ movie.TenPhim }}
+      </p>
+      <div class="contentcinema">
+        <div class="address">
+          <span class="pcinema">BHD Star</span>
+          <span class="cinemaname"> - Vincom 3/2</span>
+        </div>
+        <ng-container *ngFor="let item of movie.LichChieu | slice: 0:1">
+          <div class="hour">
+            {{ item.NgayChieuGioChieu | date: "hh:mm" }} - {{ item.Rap.TenRap }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="chair">
+      <div class="chair_left d-flex">
+        <p class="mb-0">Ghế:</p>
+        <p class="pass_chair mb-0" *ngFor="let item of danhSachGheDaDat">
+          {{ item.TenGhe }}
+        </p>
+      </div>
+    </div>
+    <div class="combo">
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="iconCombo d-flex">
+                <img src="../../../../assets/images/combo_0.png" alt="#" />
+                <p>Combo</p>
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <span class="total__combo"
+                >{{ totalCostCombo | number: "1.0-5" }} đ</span
+              >{{ panelOpenState ? "" : "" }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="chooseCombo">
+            <div class="row mb-3" *ngFor="let item of combo">
+              <div class="ml-3">
+                <img [src]="item.img" alt="#" />
+              </div>
+              <div class="combo__title">
+                <p>{{ item.name }}</p>
+                <span>{{ item.price | number: "1.0-5" }} đ</span>
+              </div>
+              <div class="d-flex">
+                <button
+                  class="btn minus_plus"
+                  (click)="minusQuantity(item.name)"
+                  [disabled]="!item.statusMinus"
+                >
+                  <i class="fa fa-minus"></i>
+                </button>
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  [id]="item.name"
+                  aria-describedby="helpId"
+                  placeholder=""
+                  value="0"
+                  min="0"
+                  max="10"
+                  disabled
+                />
+                <button
+                  class="btn minus_plus"
+                  (click)="plusQuantity(item.name)"
+                  [disabled]="!item.statusPlus"
+                >
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <form #bookingForm="ngForm">
+      <div class="buyticket" (click)="bookingTicket(bookingForm.value)">
+        Đặt vé
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade loginFail" id="modalBooking">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">
+          {{ alert }}
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

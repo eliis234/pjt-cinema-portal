@@ -1,0 +1,26 @@
+<div class="news-review">
+  <div class="container news-review-content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="btn news-review_click mr-3" [ngClass]="{choose: newsStatus}" (click)="appearNews()">TIN
+          TỨC</button>
+        <button class="btn news-review_click" [ngClass]="{choose: !newsStatus}" (click)="appearReview()">REVIEW</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" *ngIf="newsStatus; else Review">
+        <app-news></app-news>
+      </div>
+      <ng-template #Review>
+        <div class="col-md-12">
+          <app-review></app-review>
+        </div>
+      </ng-template>  
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="btn xemthem">Xem thêm</button>
+      </div>
+    </div>
+  </div>
+</div>

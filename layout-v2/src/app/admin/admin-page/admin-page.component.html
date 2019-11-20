@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="../../../assets/images/logo6.png" alt="" />
+      <strong>TMN</strong>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li class="active">
+        <a routerLink="/admin/admin-page/introduce">
+          <i class="fa fa-home"></i>
+          Trang chủ
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/admin-page/user-management">
+          <i class="fa fa-film"></i>
+          Người dùng
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/admin-page/movie-management">
+          <i class="fa fa-user"></i>
+          Phim
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- <app-sidebar></app-sidebar> -->
+  <div id="content">
+    <app-header></app-header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <i class="fa fa-bars"></i>
+        </button>
+        <button
+          class="btn btn-dark d-inline-block d-lg-none ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-align-justify"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

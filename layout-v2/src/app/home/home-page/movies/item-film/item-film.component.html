@@ -1,0 +1,19 @@
+<ng-container *ngIf="movie">
+  <div class="movie-item">
+    <div class="movie-item_img">
+      <a href=""><img [src]="movie.HinhAnh" alt=""></a>
+      <div class="movie-item_video">
+        <img class="play-video" src="../../../../../assets/images/play-video.png" data-toggle="modal" data-target="#myModalTrailer" (click)="trailer()">
+        <span class="movie_date">{{movie.NgayKhoiChieu | date: "dd-MM-yyyy"}}</span>
+        <div class="movie_ratting">
+          <a href=""><span class="fa fa-star"></span>{{movie.DanhGia}}/10</a>
+        </div>
+      </div>
+    </div>
+    <div class="movie_content">
+      <div class="movie_name">{{movie.TenPhim}}</div>
+      <div class="movie_info">106 phút - 6.5 IMDb</div>
+      <button class="btn muave" (click)="chiTietPhim()">MUA VÉ</button>
+    </div>
+  </div>
+</ng-container>

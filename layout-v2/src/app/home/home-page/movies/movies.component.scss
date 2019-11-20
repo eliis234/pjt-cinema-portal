@@ -1,0 +1,32 @@
+.loaiPhim_click {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin: 30px 0 40px 0;
+    color: #00c3b7; 
+    transition:  0.3s;
+    font-weight: 500;
+    position: relative;
+    &:hover{
+        font-size: 30px;
+        color: white;
+    }
+
+    &:focus{
+        box-shadow: none;
+    }  
+}
+
+.choose{
+    color: white;
+
+    &::after{
+        content: "";
+        width: 195px;
+        height: 2px;
+        background: linear-gradient(to right, #00c3b7, #00c3b733);
+        position: absolute;
+        top: 52px;
+        left: 0;
+        display: inline-block;
+    }
+}
