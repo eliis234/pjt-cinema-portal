@@ -2,6 +2,7 @@
 
 # dependencies
 /layout-v2/node_modules
+/pjt/node_modules
 /node_modules
 /.pnp
 .pnp.js
