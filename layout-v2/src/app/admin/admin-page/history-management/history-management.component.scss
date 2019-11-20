@@ -1,0 +1,21 @@
+.title__movie{
+  overflow: hidden;
+  display: block;
+  border-left: 2px solid #00c3b7;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  h2{
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 0;
+  }
+}
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}

@@ -7,7 +7,8 @@ const routes: Routes = [
   {path:"", component: AdminPageComponent, children:[
     {path: "introduce", loadChildren:"./introduce-admin/introduce-admin.module#IntroduceAdminModule"},
     {path: "user-management", loadChildren:"./user-management/user-management.module#UserManagementModule"},
-    {path: "movie-management", loadChildren:"./movie-management/movie-management.module#MovieManagementModule"}
+    {path: "movie-management", loadChildren:"./movie-management/movie-management.module#MovieManagementModule"},
+    {path: "history-management", loadChildren:"./history-management/history-management.module#HistoryManagementModule"}
   ]},
   
 ];
