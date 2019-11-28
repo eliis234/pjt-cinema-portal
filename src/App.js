@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Switch, BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Home from './component/home/Home'
-import Detail from './component/detail-film/Detail'
-import { HomeTemplate } from './_core/template/templateRouter'
 import './style.css'
+
+import { HomeTemplate } from './_core/template/templateRouter'
 import { fetchAllMovies } from './redux/reducer/action'
+
+import HomeCpm from './component/v2/home/HomeCpm'
+import FilmDetail from './component/v2/film-detail/FilmDetail'
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <HomeTemplate path="/" Component={Home} />
-          <Route exact path="/detail">
-            <Detail />
-          </Route>
+          <HomeTemplate path="/" Component={HomeCpm} />
+          <HomeTemplate path="detail" Component={FilmDetail}/>
         </Switch>
       </BrowserRouter>
     )
@@ -24,9 +24,5 @@ class App extends Component {
     this.props.dispatch(fetchAllMovies())
   }
 }
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {}
-}
 
-export default connect(mapStateToProps, null)(App)
+export default connect(null, null)(App)

@@ -1,43 +1,52 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
-    render() {
-        return (
-            <header className="header">
-                <div className="container ">
-                    <p className="text-white text-right mb-0">
-                        <i className="fa fa-phone" />
-                        <span className="mx-2 border-right pr-2 font-weight-bold">01634643124</span>
-                        <i className="fa fa-search" />
-                    </p>
-                    <nav className="navbar navbar-expand-lg navbar-dark p-0">
-                        <NavLink to="/">
-                            <img src="/img/logo.svg" alt="logo" />
-                        </NavLink>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon" />
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav ml-auto">
-                                <li className="nav-item active px-2">
-                                    <NavLink to="/" className="nav-link">HOME</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/test" className="nav-link">DETAIL</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/test" className="nav-link">SIGN IN</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/test" className="nav-link">SIGN UP</NavLink>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </header>
+  render() {
+    return (
+      <header className="sticky-top">
+        {/* <nav className="navbar navbar-expand-sm navbar-dark">
+          <div className="col-md-6">
+            <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="false" aria-expanded="false" aria-label="Toggle navigation">
+              <i className="fa fa-align-justify" />
+            </button>
+            <div className="collapse navbar-collapse" id="collapsibleNavId">
+              <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li className="nav-item active">
+                  <a className="nav-link" href="javc">Trang chủ<span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="javc">Lịch chiếu</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="javc">Cụm rạp</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="javc">Tin tức</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-md-6 ">
+            <div className="social">
+              <div className="attr-nav">
+                <ul>
+                  <li><a href="#"><i className="fa fa-facebook" /></a></li>
+                  <li><a href="#"><i className="fa fa-twitter" /></a></li>
+                  <li className="LineFence"><a href="#"><i className="fa fa-google-plus" /></a></li>
+                  <li>
+                    <a data-toggle="modal" data-target="#modalDangNhap">Đăng nhập</a>
+                  </li>
+                  <li id="li-dang-ky">
+                    <a data-toggle="modal" data-target="#modalDangKy">Đăng ký</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav> */}
+      </header>
 
-        )
-    }
+    )
+  }
 }
