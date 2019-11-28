@@ -1,4 +1,4 @@
-import { get } from "./myMethod"
+import { get, post, put } from "./myMethod"
 
 
 export const Login = ()=>{
@@ -28,7 +28,7 @@ export const AddUser = ()=>{
 export const UserType = ()=>{
  return post('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
 }
-const movieService = {
+const userService = {
   Login, CreateUser, UpdateUser, ListUser,UserDetail,AddUser,UserType
 }
 

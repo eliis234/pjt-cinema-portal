@@ -1,5 +1,6 @@
-import { getAllFilm } from "../../services/movieSevice"
-"
+import { getAllFilm,AddMovie,UpdateMovie} from "../../services/movieSevice"
+import { Login, CreateUser, UpdateUser, ListUser, UserDetail, AddUser, UserType} from "../../services/userService"
+import { DETAIL_USER, UPDATE_USER, LOG_IN, UPDATE_MOVIES, ADD_MOVIES, GET_MOVIES, ADD_USER, TYPE_USER, CREATE_USER } from "../constantReducer"
 
 export const reduxAction = (type,data) => {
   return {type, data}
@@ -35,7 +36,7 @@ export const updateMovies = () => {
   return dispatch => {
     UpdateMovie()
     .then(res => {
-      dispatch(reduxAction(ADD_MOVIES, res.data));
+      dispatch(reduxAction(UPDATE_MOVIES, res.data));
     })
     .catch(err => {
       console.log(err);
@@ -85,10 +86,10 @@ export const updateUser = () => {
     })
   }
 }
-//danh sách user
-export const detailUser = () => {
+//quan ly nguoi dung user
+export const userDetail = () => {
   return dispatch => {
-    DetailUser()
+    UserDetail()
     .then(res => {
       dispatch(reduxAction(DETAIL_USER,res.data));
     })
@@ -110,10 +111,22 @@ export const addUser = () => {
   }
 }
 
-
+//danh sach loai nguoi dung
 export const typeUser = () => {
   return dispatch => {
     UserType()
+    .then(res => {
+      dispatch(reduxAction(TYPE_USER,res.data));
+    })
+    .cath(err => {
+      console.log(err);
+    })
+  }
+}
+//danh sach nguoi dung
+export const listUser = () => {
+  return dispatch => {
+    ListUser()
     .then(res => {
       dispatch(reduxAction(TYPE_USER,res.data));
     })

@@ -1,4 +1,4 @@
-import { get } from "./myMethod"
+import { get, post } from "./myMethod"
 
 export const getAllFilm = ()=>{
   return get('/QuanLyPhim/LayDanhSachPhim?maNhom=GP08')
@@ -15,4 +15,4 @@ const movieService = {
   getAllFilm, AddMovie, UpdateMovie
 }
 
-export default movieSevice
+export default movieService

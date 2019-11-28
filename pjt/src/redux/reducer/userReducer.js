@@ -5,6 +5,7 @@ import { DETAIL_USER } from "../constantReducer"
 import { ADD_USER } from "../constantReducer"
 import {TYPE_USER} from "../constantReducer"
 
+
 const initState = {
   users: []
 }
@@ -22,8 +23,8 @@ export const userReducer = (state = initState, {type, data}) => {
       state.users = users;
       return {...state}
     }
-    //MANAGE_USER
-    case MANAGE_USER: {
+    //UPDATE_USER
+    case UPDATE_USER: {
       let users = data
       state.users = users;
       return {...state}
