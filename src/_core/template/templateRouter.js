@@ -1,14 +1,15 @@
-import React from 'react'
-import {Route} from 'react-router-dom'
-import Header from '../component/Header'
+import React from "react";
+import Header from "../component/Header";
 
-
-export const HomeTemplate = (props) =>{
-          const {Component, path} = props
-          return (
-                    <Route exact path={path}>
-                              <Header/>
-                              <Component/>
-                    </Route>
-          )
+export class HomeTemplate extends React.Component {
+  render() {
+    console.log(this.props);
+    const Cmp = this.props.Component
+    return (
+      <>
+        <Header/>
+        <Cmp/>
+      </>
+    )
+  }
 }

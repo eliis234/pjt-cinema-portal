@@ -1,28 +1,30 @@
-import React, { Component } from 'react'
-import { Switch, BrowserRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import './style.css'
+import React, { Component } from "react";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { HomeTemplate } from "./_core/template/templateRouter";
+import { fetchAllMovies } from "./redux/reducer/action";
 
-import { HomeTemplate } from './_core/template/templateRouter'
-import { fetchAllMovies } from './redux/reducer/action'
-
-import HomeCpm from './component/v2/home/HomeCpm'
-import FilmDetail from './component/v2/film-detail/FilmDetail'
+import HomeCpm from "./component/v2/home/HomeCpm";
+import FilmDetail from "./component/v2/film-detail/FilmDetail";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <HomeTemplate path="/" Component={HomeCpm} />
-          <HomeTemplate path="detail" Component={FilmDetail}/>
+          <Route exact path="/">
+            <HomeTemplate Component={HomeCpm} />
+          </Route>
+          <Route exact path="/detail">
+            <HomeTemplate Component={FilmDetail} />
+          </Route>
         </Switch>
       </BrowserRouter>
-    )
+    );
   }
   componentDidMount() {
-    this.props.dispatch(fetchAllMovies())
+    this.props.dispatch(fetchAllMovies());
   }
 }
 
-export default connect(null, null)(App)
+export default connect(null, null)(App);

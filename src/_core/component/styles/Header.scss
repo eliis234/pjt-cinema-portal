@@ -1,0 +1,14 @@
+.header{
+  .navbar{
+    background: #060e19;
+  }
+  .nav-link{
+    font-weight: 600;
+    color: #fafafa;
+    transition: .3s linear;
+    cursor: pointer;
+    &:hover{
+      color: #00c3b7;
+    }
+  }
+}
