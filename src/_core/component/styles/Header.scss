@@ -1,14 +1,45 @@
-.header{
-  .navbar{
+.header {
+  color: #fafafa;
+  .navbar {
     background: #060e19;
   }
-  .nav-link{
+  .nav-link {
     font-weight: 600;
-    color: #fafafa;
-    transition: .3s linear;
+    transition: 0.3s linear;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: #00c3b7;
+    }
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .social {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      margin: 0 10px 0 0;
+      .icon {
+        padding: 0 5px;
+      }
+    }
+    .sign {
+      border-left: 1px solid #fafafa;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .sign-btn {
+        color: #fafafa;
+        font-weight: 600;
+        padding: 0 10px;
+        cursor: pointer;
+        transition: 0.3s linear;
+        &:hover {
+          color: #00c3b7;
+        }
+      }
     }
   }
 }
