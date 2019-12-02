@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../component/Header";
+import Footer from "../component/Footer";
 
 export class HomeTemplate extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export class HomeTemplate extends React.Component {
       <>
         <Header/>
         <Cmp/>
+        <Footer/>
       </>
     )
   }
