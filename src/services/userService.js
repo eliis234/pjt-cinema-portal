@@ -14,7 +14,7 @@ export const UpdateUser = ()=>{
 }
 
 export const ListUser = ()=>{
-  return get('/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP08')
+  return get('/QuanLyNguoiDung/LayDanhSachNguoiDung')
 }
 
 export const UserDetail = ()=>{
@@ -26,7 +26,7 @@ export const AddUser = ()=>{
 }
 
 export const UserType = ()=>{
- return post('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
+ return get('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
 }
 const userService = {
   Login, CreateUser, UpdateUser, ListUser,UserDetail,AddUser,UserType

@@ -5,7 +5,8 @@ import { HomeTemplate } from "./_core/template/templateRouter";
 import { fetchAllMovies } from "./redux/reducer/action";
 
 import HomeCpm from "./component/v2/home/HomeCpm";
-import FilmDetail from "./component/v2/film-detail/FilmDetail";
+import FilmDetail from "./component/v2/film-detail/style/FilmDetail";
+import AdminCpm from "./component/v2/admin/AdminCpm";
 
 class App extends Component {
   render() {
@@ -17,6 +18,9 @@ class App extends Component {
           </Route>
           <Route exact path="/detail">
             <HomeTemplate Component={FilmDetail} />
+          </Route>
+          <Route exact path="/admin">
+            <AdminCpm/>
           </Route>
         </Switch>
       </BrowserRouter>

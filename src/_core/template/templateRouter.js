@@ -7,11 +7,13 @@ export class HomeTemplate extends React.Component {
     // console.log(this.props);
     const Cmp = this.props.Component
     return (
-      <>
+    <div style={{
+      background: "url('/img/background1.jpg')",
+    }}>
         <Header/>
         <Cmp/>
         <Footer/>
-      </>
+      </div>
     )
   }
 }

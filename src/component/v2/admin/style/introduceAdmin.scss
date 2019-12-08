@@ -1,0 +1,42 @@
+.introduce {
+
+  .title__introduce{
+    overflow: hidden;
+    display: block;
+    border-left: 2px solid #00c3b7;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    h3{
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+  }
+
+  .content__introduce{
+    p{
+      text-align: justify;
+    }
+  }
+  .image__introduce {
+    ul {
+      margin: 0;
+      float: left;
+      padding: 0;
+      li {
+        float: left;
+        width: 46%;
+        height: 128px;
+        border: 1px solid;
+        margin: 10px 7px;
+        box-shadow: 3px 3px 3px #333;
+        border-radius: 3px;
+        list-style: none;
+        img {
+          width: 100%;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}
