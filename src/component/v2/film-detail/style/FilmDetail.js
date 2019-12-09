@@ -7,7 +7,7 @@ export default class FilmDetail extends Component {
   <div className="detail-trailer">
     <img className="detail-background" alt="detail img" />
     <div className="detail-trailer-bg" />
-    <img className="play-video" src="../../../../../assets/images/play-video.png" data-toggle="modal" data-target="#movieDetailTrailer" />
+    <img className="play-video" src="img/play-video.png" alt="text" data-toggle="modal" data-target="#movieDetailTrailer" />
     <div className="border-play-video" /></div>
   <div className="row detail-desc">
     <div className="col-sm-12 col-xs-12">
@@ -15,13 +15,13 @@ export default class FilmDetail extends Component {
         <div className="row">
           <div className="col-lg-5 col-md-5 col-sm-6 col-xs-12">
             <div className="detail-review-img">
-              <img alt />
+              <img alt=""/>
             </div>
           </div>
           <div className="col-lg-7 col-md-7 col-sm-6 col-xs-12 right-col">
             <div className="detail-reivew-des">
               <div className="detail-title">
-                <h2>{'{'}{'{'} movie.TenPhim {'}'}{'}'}</h2>
+                <h2>movie.TenPhim</h2>
               </div>
               <div className="detail-rating">
                 <span className="fa fa-star" />
@@ -104,27 +104,27 @@ export default class FilmDetail extends Component {
           <ul className="nav nav-pills nav-center nav-rap">
             <li className="nav-item">
               <a className="nav-link active" data-toggle="pill" href="#CGV">
-                <img src="../../../../assets/images/rapBHD.png" alt />
+                <img src="/img/rapBHD.png" alt="size img" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" data-toggle="pill" href="#BHD">
-                <img className="logo-circle" src="../../../../assets/images/rapGALA.png" alt />
+                <img className="logo-circle" src="/img/rapGALA.png" alt="size img" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" data-toggle="pill" href="#LOTTE">
-                <img className="logo-circle" src="../../../../assets/images/rapLOTE.png" alt />
+                <img className="logo-circle" src="/img/rapLOTE.png" alt="size img" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" data-toggle="pill" href="#SAO">
-                <img className="logo-circle" src="../../../../assets/images/rapSAO.png" alt />
+                <img className="logo-circle" src="/img/rapSAO.png" alt="size img" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" data-toggle="pill" href="#TOUCH">
-                <img className="logo-circle" src="../../../../assets/images/doitac3.png" alt />
+                <img className="logo-circle" src="/img/doitac3.png" alt="size img" />
               </a>
             </li>
           </ul>
@@ -138,7 +138,7 @@ export default class FilmDetail extends Component {
                         <a className="nav-link active" data-toggle="pill" href="#CGVSuVanHanh">
                           <div className="item-rap">                                           
                             <div className="rap-img">
-                              <img src="../../../../assets/images/cgv-su-van-hanh.jpg" alt />
+                              <img src="/img/cgv-su-van-hanh.jpg" alt="size img" />
                             </div>
                             <div className="rap-dia-chi">
                               <h5><span>CGV</span> - Sư Vạn Hạnh</h5>
@@ -151,7 +151,7 @@ export default class FilmDetail extends Component {
                         <a className="nav-link" data-toggle="pill" href="#CGVThuDuc">
                           <div className="item-rap">                                           
                             <div className="rap-img">
-                              <img src="../../../../assets/images/cgv-su-van-hanh.jpg" alt />
+                              <img src="/img/cgv-su-van-hanh.jpg" alt="size img" />
                             </div>
                             <div className="rap-dia-chi">
                               <h5><span>CGV</span> - Thủ Đức</h5>
@@ -164,7 +164,7 @@ export default class FilmDetail extends Component {
                         <a className="nav-link" data-toggle="pill" href="#CGVDongKhoi">
                           <div className="item-rap">
                             <div className="rap-img">
-                              <img src="../../../../assets/images/cgv-su-van-hanh.jpg" alt />
+                              <img src="/img/cgv-su-van-hanh.jpg" alt="size img" />
                             </div>
                             <div className="rap-dia-chi">
                               <h5><span>CGV</span> - Đồng Khởi</h5>
@@ -191,7 +191,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img alt />
+                                  <img alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span>{'{'}{'{'}movie.TenPhim{'}'}{'}'}</h5>
@@ -227,7 +227,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Super man</h5>
@@ -247,7 +247,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Super man</h5>
@@ -269,7 +269,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Spider man</h5>
@@ -289,7 +289,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Spider man</h5>
@@ -326,7 +326,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Annabelle</h5>
@@ -346,7 +346,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Annabelle</h5>
@@ -368,7 +368,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Thor</h5>
@@ -388,7 +388,7 @@ export default class FilmDetail extends Component {
                             <div className="item-lich-chieu">
                               <div className="lich-chieu-des">
                                 <div className="lich-chieu-img">
-                                  <img src="../../../../assets/images/aladdin.jpg" alt />
+                                  <img src="/img/aladdin.jpg" alt="size img" />
                                 </div>
                                 <div className="lich-chieu-phim">
                                   <h5><span>13</span> Thor</h5>
