@@ -74,7 +74,14 @@ export default class FilmDetail extends Component {
       <div className="modal-content">
         {/* Modal body */}
         <div className="modal-body">
-          <iframe width="100%" height="100%" frameBorder={0} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+          {/* TODO */}
+          {/* <iframe 
+            width="100%" 
+            height="100%" 
+            frameBorder={0} 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen 
+          /> */}
         </div>
         <button title="Close (Esc)" type="button" className="modal-close" data-dismiss="modal">
           <i className="fa fa-times" />
@@ -440,7 +447,7 @@ export default class FilmDetail extends Component {
                 <img alt="img" />
                 <span className="news-date">{'{'}{'{'}item.release{'}'}{'}'}</span>
               </div>
-              <a className="news-title">
+              <a className="news-title" href="/">
                 <p className="mt-3">{'{'}{'{'}item.title{'}'}{'}'}</p>
               </a>
               <p className="news-content">{'{'}{'{'}item.content{'}'}{'}'}</p>
@@ -456,7 +463,7 @@ export default class FilmDetail extends Component {
               <div className="news-image">
                 <img alt="img" />
               </div>
-              <a className="news-title">
+              <a className="news-title" href="/">
                 <p className="mt-3">{'{'}{'{'}item.title{'}'}{'}'}</p>
               </a>
               <p className="news-content">{'{'}{'{'}item.content{'}'}{'}'}</p>

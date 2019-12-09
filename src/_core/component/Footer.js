@@ -10,7 +10,7 @@ export default class Footer extends Component {
             <div className="row footer">
               <div className="col-md-3 footerInfo">
                 <div className="footerLogo">
-                  <a href>
+                  <a href="/">
                     <img src="/img/images/logo6.png" alt="size img" />
                   </a>
                 </div>
@@ -26,19 +26,19 @@ export default class Footer extends Component {
                   <p>Về chúng tôi</p>
                 </div>
                 <div className="footer-content">
-                  <a href>
+                  <a href="/">
                     <p>Giới thiệu</p>
                   </a>
-                  <a href>
+                  <a href="/">
                     <p>Lịch chiếu</p>
                   </a>
-                  <a href>
+                  <a href="/">
                     <p>Cụm rạp</p>
                   </a>
-                  <a href>
+                  <a href="/">
                     <p>Tin tức</p>
                   </a>
-                  <a href>
+                  <a href="/">
                     <p>Đăng nhập</p>
                   </a>
                 </div>

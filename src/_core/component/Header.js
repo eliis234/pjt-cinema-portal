@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <header className="header">
-        <nav className="navbar navbar-expand-md">
+        <nav className="navbar navbar-expand-md m-0">
           <button
             className="navbar-toggler"
             type="button"
@@ -30,17 +30,17 @@ export default class Header extends Component {
             <ul className="social">
               <li>
                 <span className="icon">
-                  <i class="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"></i>
                 </span>
               </li>
               <li>
                 <span className="icon">
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </span>
               </li>
               <li>
                 <span className="icon">
-                  <i class="fab fa-google-plus-g"></i>
+                  <i className="fab fa-google-plus-g"></i>
                 </span>
               </li>
             </ul>
