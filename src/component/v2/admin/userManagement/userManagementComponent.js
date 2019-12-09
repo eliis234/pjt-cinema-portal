@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../style/userManagementComponent.scss'
 import MaterialTable from 'material-table';
-import { UserType, ListUser } from '../../../../services/userService'
+import { ListUser } from '../../../../services/userService'
 
 class userManagementComponent extends Component {
   constructor(props) {
@@ -78,8 +78,7 @@ class userManagementComponent extends Component {
               }),
           }}
         />
-      </div >
-
+      </div>
     );
   }
 
