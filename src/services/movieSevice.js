@@ -4,15 +4,15 @@ export const getAllFilm = ()=>{
   return get('/QuanLyPhim/LayDanhSachPhim?maNhom=GP08')
 }
 
-export const AddMovie = ()=>{
+export const addMovie = ()=>{
   return post('/QuanLyPhim/ThemPhim')
 }
 
-export const UpdateMovie = ()=>{
+export const updateMovie = ()=>{
   return post('/QuanLyPhim/CapNhatPhim')
 }
 const movieService = {
-  getAllFilm, AddMovie, UpdateMovie
+  getAllFilm, addMovie, updateMovie
 }
 
 export default movieService

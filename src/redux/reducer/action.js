@@ -1,4 +1,4 @@
-import { getAllFilm,AddMovie,UpdateMovie} from "../../services/movieSevice"
+import { getAllFilm,addMovie,updateMovie} from "../../services/movieSevice"
 import { Login, CreateUser, UpdateUser, ListUser, UserDetail, AddUser, UserType} from "../../services/userService"
 import { DETAIL_USER, UPDATE_USER, LOG_IN, UPDATE_MOVIES, ADD_MOVIES, GET_MOVIES, ADD_USER, TYPE_USER, CREATE_USER } from "../constantReducer"
 
@@ -22,7 +22,7 @@ export const fetchAllMovies = () => {
 //thêm movie
 export const addMovies = () => {
   return dispatch => {
-    AddMovie()
+    addMovie()
     .then(res => {
       dispatch(reduxAction(ADD_MOVIES, res.data));
     })
@@ -34,7 +34,7 @@ export const addMovies = () => {
 //update movie
 export const updateMovies = () => {
   return dispatch => {
-    UpdateMovie()
+    updateMovie()
     .then(res => {
       dispatch(reduxAction(UPDATE_MOVIES, res.data));
     })
