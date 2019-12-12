@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../style/userManagementComponent.scss'
+import './style/movieManagement.scss'
 import MaterialTable from 'material-table';
 
-class movieManagementComponent extends Component {
+class MovieManagementComponent extends Component {
     constructor(props){
       super(props)
       this.state = {
@@ -29,8 +29,8 @@ class movieManagementComponent extends Component {
     }
     render() {
       return (
-        <div>
-          <div class="title__user">
+        <div className="cm-movie-management">
+          <div className="title__user">
             <h2>Quản lý Phim</h2>
           </div>
           <MaterialTable
@@ -81,4 +81,4 @@ class movieManagementComponent extends Component {
     }
   }
 
-export default movieManagementComponent;
+export default MovieManagementComponent;

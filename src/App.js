@@ -5,8 +5,11 @@ import { HomeTemplate } from "./_core/template/templateRouter";
 import { fetchAllMovies } from "./redux/reducer/action";
 
 import HomeCpm from "./component/v2/home/HomeCpm";
-import FilmDetail from "./component/v2/film-detail/style/FilmDetail";
-import AdminCpm from "./component/v2/admin/AdminCpm";
+import FilmDetail from "./component/v2/film-detail/FilmDetail";
+import { AdminTemplate } from "./_core/template/templateAdmin";
+import IntroduceAdmin from "./component/v2/admin/IntroduceAdmin";
+import UserManagementComponent from "./component/v2/admin/UserManagementComponent";
+import MovieManagementComponent from "./component/v2/admin/MovieManagementComponent";
 
 class App extends Component {
   render() {
@@ -20,7 +23,13 @@ class App extends Component {
             <HomeTemplate Component={FilmDetail} />
           </Route>
           <Route exact path="/admin">
-            <AdminCpm/>
+            <AdminTemplate Component={IntroduceAdmin} />
+          </Route>
+          <Route exact path="/admin-user-management">
+            <AdminTemplate Component={UserManagementComponent} />
+          </Route>
+          <Route exact path="/admin-movie-management">
+            <AdminTemplate Component={MovieManagementComponent} />
           </Route>
         </Switch>
       </BrowserRouter>

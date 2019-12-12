@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../style/introduceAdmin.scss'
+import './style/introduceAdmin.scss'
 
 class IntroduceAdmin extends Component {
   render() {
