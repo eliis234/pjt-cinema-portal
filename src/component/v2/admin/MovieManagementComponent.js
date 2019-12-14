@@ -1,34 +1,18 @@
 import React, { Component } from "react";
 import "./style/movieManagement.scss";
 import MaterialTable from "material-table";
-import movieService from "../../../services/movieSevice";
+import { connect } from "react-redux";
+import { fetchAllMovies } from "../../../redux/reducer/action";
+import * as _ from "lodash";
 
 class MovieManagementComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      columns: [
-        { title: "Name", field: "name" },
-        { title: "Surname", field: "surname" },
-        { title: "Birth Year", field: "birthYear", type: "numeric" },
-        {
-          title: "Birth Place",
-          field: "birthCity",
-          lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
-        }
-      ],
-      data: [
-        { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-        {
-          name: "Zerya Betül",
-          surname: "Baran",
-          birthYear: 2017,
-          birthCity: 34
-        }
-      ]
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
+
   render() {
+    const { columns, data } = this.getDataRenderTable();
+    console.log(this.props.movies);
     return (
       <div className="cm-movie-management">
         <div className="title__user">
@@ -36,8 +20,8 @@ class MovieManagementComponent extends Component {
         </div>
         <MaterialTable
           title=""
-          columns={this.state.columns}
-          data={this.state.data}
+          columns={columns}
+          data={data}
           editable={{
             onRowAdd: this.onRowAdd,
             onRowUpdate: this.onRowUpdate,
@@ -47,7 +31,25 @@ class MovieManagementComponent extends Component {
       </div>
     );
   }
-
+  // handle
+  getDataRenderTable() {
+    // biDanh: "phuc"
+    // moTa: "Newlywed couple Ted and Tami-Lynn want to have a baby, but in order to qualify to be a parent, Ted will have to prove he's a person in a court of law."
+    // hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/phuc_gp08.jpg"
+    const res = {
+      columns: [
+        { title: "Ten Phim", field: "tenPhim" },
+        { title: "Ngay Khoi Chieu", field: "ngayKhoiChieu" },
+        { title: "Ma Phim", field: "maPhim", type: "numeric" },
+        { title: "Danh Gia", field: "danhGia", type: "numeric" },
+        { title: "Ma Nhom", field: "maNhom" }
+      ],
+      data: []
+    };
+    res.data = _.get(this, "props.movies", []);
+    return res;
+  }
+  // event
   onRowAdd(newData) {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -89,13 +91,15 @@ class MovieManagementComponent extends Component {
     });
   }
 
-  componentDidMount(){
-    movieService.getAllFilm().then(res => {
-      const {data} = res;
-      console.log(data);
-      
-    })
+  componentDidMount() {
+    this.props.dispatch(fetchAllMovies);
   }
 }
 
-export default MovieManagementComponent;
+const mapStateToProps = state => {
+  return {
+    movies: _.get(state, "movie.movies", [])
+  };
+};
+
+export default connect(mapStateToProps, null)(MovieManagementComponent);

@@ -8,8 +8,7 @@ export const movieReducer = (state = initState, {type, data}) => {
   switch (type) {
     //lấy danh sách film
     case GET_MOVIES: {
-      let movies = data
-      state.movies = movies;
+      state.movies = data;
       return {...state}
     }
     //thêm film
