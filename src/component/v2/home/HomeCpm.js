@@ -4,6 +4,7 @@ import GlobalCenimasCpm from './GlobalCenimasCpm'
 import CarouselCpm from './CarouselCpm'
 import SearchCpm from './SearchCpm'
 import FilmsCpm from './film/FilmsCpm'
+import NewsCpm from './news/NewsCpm'
 
 export default class HomeCpm extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class HomeCpm extends Component {
         <SearchCpm/>
         <FilmsCpm/>
         <GlobalCenimasCpm/>
+        <NewsCpm/>
       </div>
     )
   }
