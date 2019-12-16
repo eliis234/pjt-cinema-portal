@@ -1,4 +1,5 @@
 .carousel-cpm {
+  margin-bottom: 80px;
   img {
     margin: 0;
   }
@@ -30,15 +31,24 @@
         }
       }
       
-      // .owl-nav{
-      //   .owl-next{
-          
-      //   }
-      // }
+      .owl-nav{
+        .owl-next, .owl-prev{
+          background: transparent;
+          font-size: 30px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .owl-next{
+          right: 40px;
+        }
+        .owl-prev{
+          left: 40px;
+        }
+      }
     }
 
     .booking-ticket {
-      display: none;
       padding: 30px 0;
       background-color: #00c3b7;
       width: 77%;

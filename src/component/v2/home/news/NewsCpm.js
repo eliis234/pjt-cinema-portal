@@ -79,6 +79,9 @@ export default class GlobalCenimasCpm extends Component {
       <div className="cm-news-cpm mt-5">
         <div className="container">
           <div className="row">
+            <div className="col-12">
+              <h1 className="news-title__mains">Tin Tức</h1>
+            </div>
             {news1.map((item, index) => {
               return (
                 <div className="col-md-6 news_bg" key={index}>
