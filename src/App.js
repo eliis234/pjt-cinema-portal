@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path="/">
             <HomeTemplate Component={HomeCpm} />
           </Route>
-          <Route exact path="/detail">
+          <Route exact path="/detail/:id">
             <HomeTemplate Component={FilmDetail} />
           </Route>
           <Route exact path="/admin">
