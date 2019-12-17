@@ -12,7 +12,7 @@ export default class FilmsCpm extends Component {
     };
   }
   render() {
-    console.log(this.state.movies);
+    // console.log(this.state.movies);
     const options = {
       items:4,
       loop:true,

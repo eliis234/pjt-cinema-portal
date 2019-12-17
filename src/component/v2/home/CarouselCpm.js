@@ -37,25 +37,25 @@ export default class CarouselCpm extends Component {
             <div className="row m-0">
               <div className="col-sm-6 col-md-4">
                 <select id="selectMovie" className="form-control">
-                  <option selected>Phim</option>
+                  <option>Phim</option>
                   <option>item.TenPhim</option>
                 </select>
               </div>
               <div className="col-sm-6 col-md-2">
                 <select id="selectCinema" className="form-control">
-                  <option selected>Rạp</option>
+                  <option>Rạp</option>
                   <option>item.TenRap</option>
                 </select>
               </div>
               <div className="col-sm-6 col-md-2">
                 <select id="selectDate" className="form-control">
-                  <option selected>Ngày</option>
+                  <option>Ngày</option>
                   <option>item.NgayChieuGioChieu | date: "dd/MM/yyyy"</option>
                 </select>
               </div>
               <div className="col-sm-6 col-md-2">
                 <select id="selectTime" className="form-control">
-                  <option selected>Giờ</option>
+                  <option>Giờ</option>
                   <option>item.NgayChieuGioChieu | date: "hh:mm"</option>
                 </select>
               </div>

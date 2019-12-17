@@ -1,0 +1,28 @@
+.cm-tabs-cenimas-cpm {
+  .MuiAppBar-colorPrimary,
+  .MuiTabs-flexContainer,
+  .MuiTabs-scroller {
+    background: transparent;
+    box-shadow: unset!important;
+  }
+  .MuiTabs-flexContainer {
+    justify-content: center;
+  }
+  .MuiTab-wrapper{
+    position: relative;
+    z-index: 50;
+    text-transform: capitalize;
+    font-size: 17px;
+  }
+  // .Mui-selected{
+  //   .MuiTab-wrapper{
+      
+  //   }
+  // }
+  .MuiTabs-indicator{
+    background: #02bcb1;
+    height: 48px;
+    border-radius: 28px;
+    z-index: 48;
+  }
+}
