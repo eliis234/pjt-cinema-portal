@@ -1,24 +1,54 @@
 import React, { Component } from "react";
 import "./style/GlobalCenimasDetail.scss";
 import * as _ from "lodash";
+import moment from "moment";
 import TabsCenimaCpm from "./TabsCenimaCpm";
+import { Link } from "react-router-dom";
 
 export default class GlobalCenimasDetailCpm extends Component {
   _renderLichChieu() {
     const { lichChieu } = this.props.data;
-    let group = _.groupBy(lichChieu, i => i.maRap);
+    console.log(lichChieu);
+    let group = _.groupBy(lichChieu, i => {
+      return moment(i.ngayChieuGioChieu).format("MM-DD-YYYY");
+    });
     console.log(group);
+    return Object.keys(group).map((item, index) => {
+      return (
+        <div className="col-6 text-center">
+          <div className="film-items-title" key={index}>
+            {item}
+          </div>
+          <div className="film-items-content">
+            <div className="row">
+              {group[item].map((i, idx) => {
+                const time = moment(i.ngayChieuGioChieu).format("HH:mm");
+                return (
+                  <div className="col-2 mt-2">
+                    <Link to="/booking">
+                      <span className="time">{time}</span>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      );
+    });
   }
 
   initData = () => {
     let lichChieu = {
-      title: 'Lịch Chiếu'
-    }
-    return [
-      THONG_TIN,
-      BINH_LUAN
-    ]
-  }
+      title: "Lịch Chiếu",
+      content: (
+        <div className="container">
+          <div className="row">{this._renderLichChieu()}</div>
+        </div>
+      )
+    };
+    return [lichChieu, THONG_TIN, BINH_LUAN];
+  };
   render() {
     // const {
     //   lichChieu,
@@ -41,7 +71,7 @@ export default class GlobalCenimasDetailCpm extends Component {
         <div className="detail-content">
           <div className="row">
             <div className="col-sm-12 col-xs-12">
-              <TabsCenimaCpm data={this.initData()}/>
+              <TabsCenimaCpm data={this.initData()} />
             </div>
           </div>
         </div>
