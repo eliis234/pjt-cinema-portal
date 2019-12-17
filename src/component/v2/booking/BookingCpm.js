@@ -14,6 +14,7 @@ class BookingCpm extends Component {
     };
   }
 
+  //render ra ghế
   _renderChair() {
     return this.state.chairs.slice(0, 50).map((item, index) => {
       const { daDat, stt } = item;
@@ -36,7 +37,7 @@ class BookingCpm extends Component {
       );
     });
   }
-
+//render ghế đã book
   _renderBooking() {
     const chairsBooking = this.state.chairsBooking;
     return chairsBooking.map((item, index) => {
@@ -54,7 +55,8 @@ class BookingCpm extends Component {
       );
     });
   }
-
+// end **
+// tổng tiền
   _sumMoney() {
     let { chairsBooking } = this.state;
     let sum = 0;
@@ -63,7 +65,10 @@ class BookingCpm extends Component {
     }
     return sum;
   }
+// end tổng tiền
 
+
+// click để đặt ghế
   _onClickBooking = item => {
     let { chairsBooking } = this.state;
     let index = chairsBooking.findIndex(i => i.maGhe === item.maGhe);
@@ -77,7 +82,10 @@ class BookingCpm extends Component {
       chairsBooking: _.sortBy(chairsBooking, i => i.stt)
     });
   };
+// End 
 
+
+// mua vé
   _onClickPriceSticker = () => {
     let data = {
       maLichChieu: 0,
@@ -92,7 +100,7 @@ class BookingCpm extends Component {
     }));
     console.log(data);
   };
-
+// enddd
   render() {
     console.log(this.props.userLogin);
     return (
@@ -139,11 +147,13 @@ class BookingCpm extends Component {
     );
   }
 
+
+  
   componentDidMount() {
     let id = _.get(this.props, "params.id", "");
     if (id) {
       getDetailRooms(id).then(({ data }) => {
-        console.log("api tra ve chi tiet lich chieu phim: ", data);
+        console.log("Api trả về chi tiếc lịch chiếu phim: ", data);
         this.setState({
           chairs: data.danhSachGhe,
           info: data.thongTinPhim
