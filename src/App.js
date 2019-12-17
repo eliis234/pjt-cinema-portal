@@ -9,6 +9,7 @@ import FilmDetail from "./component/v2/film-detail/FilmDetail";
 import BookingCpm from "./component/v2/booking/BookingCpm";
 import { AdminTemplate } from "./_core/template/templateAdmin";
 import IntroduceAdmin from "./component/v2/admin/IntroduceAdmin";
+import Storybook from "./component/v2/admin/StoryBook";
 import UserManagementComponent from "./component/v2/admin/UserManagementComponent";
 import MovieManagementComponent from "./component/v2/admin/MovieManagementComponent";
 
@@ -36,6 +37,11 @@ class App extends Component {
             exact
             path="/admin"
             component={(props) => <AdminTemplate {...props} Component={IntroduceAdmin} />}
+          />
+          <Route
+            exact
+            path="/admin"
+            component={(props) => <AdminTemplate {...props} Component={Storybook} />}
           />
           <Route
             exact

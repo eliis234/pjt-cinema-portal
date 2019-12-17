@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { connect } from "react-redux";
 import { fetchAllMovies } from "../../../redux/reducer/action";
 import * as _ from "lodash";
-import { delFilm } from '../../../services/movieSevice';
+import { delFilm, updateMovie, addMovie } from '../../../services/movieSevice';
 
 class MovieManagementComponent extends Component {
   constructor(props) {
@@ -53,8 +53,13 @@ class MovieManagementComponent extends Component {
   }
 
   //handle
-  addMovie(data) {
-
+  creatMovie(data) {
+    addMovie(data).then(res =>{
+      console.log(res);
+    }).catch(error => {
+      // console.log(error);
+      alert('Phim không thêm')
+    })
   }
 
   removeMovie(maPhim) {
@@ -62,7 +67,7 @@ class MovieManagementComponent extends Component {
       console.log(res);
     }).catch(error => {
       // console.log(error);
-      alert('fuck thai cho dien')
+      alert('Phim không được xóa')
     })
   }
   // event
@@ -101,11 +106,6 @@ class MovieManagementComponent extends Component {
         resolve();
         console.log(oldData.maPhim);
         this.removeMovie(oldData.maPhim);
-        // this.setState(prevState => {
-        //   const data = [...prevState.data];
-        //   data.splice(data.indexOf(oldData), 1);
-        //   return { ...prevState, data };
-        // });
       }, 600);
     });
   }
