@@ -10,6 +10,7 @@ import { AdminTemplate } from "./_core/template/templateAdmin";
 import IntroduceAdmin from "./component/v2/admin/IntroduceAdmin";
 import UserManagementComponent from "./component/v2/admin/UserManagementComponent";
 import MovieManagementComponent from "./component/v2/admin/MovieManagementComponent";
+import BookingCpm from "./component/v2/home/BookingCpm"
 
 class App extends Component {
   render() {
@@ -38,8 +39,8 @@ class App extends Component {
           />
           <Route
             exact
-            path="/admin-movie-management"
-            component={(props) => <AdminTemplate {...props} Component={MovieManagementComponent} />}
+            path="/booking"
+            component={(props) => <HomeTemplate {...props} Component={BookingCpm} />}
           />
         </Switch>
       </BrowserRouter>
