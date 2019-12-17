@@ -11,7 +11,7 @@ export class HomeTemplate extends React.Component {
       background: "url('/img/background1.jpg')",
     }}>
         <Header/>
-        <Cmp/>
+        <Cmp {...this.props.match}/>
         <Footer/>
       </div>
     )

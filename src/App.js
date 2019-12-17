@@ -16,21 +16,31 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <HomeTemplate Component={HomeCpm} />
-          </Route>
-          <Route exact path="/detail/:id">
-            <HomeTemplate Component={FilmDetail} />
-          </Route>
-          <Route exact path="/admin">
-            <AdminTemplate Component={IntroduceAdmin} />
-          </Route>
-          <Route exact path="/admin-user-management">
-            <AdminTemplate Component={UserManagementComponent} />
-          </Route>
-          <Route exact path="/admin-movie-management">
-            <AdminTemplate Component={MovieManagementComponent} />
-          </Route>
+          <Route
+            exact
+            path="/"
+            component={(props) => <HomeTemplate {...props} Component={HomeCpm} />}
+          />
+          <Route
+            exact
+            path="/detail/:id"
+            component={(props) => <HomeTemplate {...props} Component={FilmDetail} />}
+          />
+          <Route
+            exact
+            path="/admin"
+            component={(props) => <AdminTemplate {...props} Component={IntroduceAdmin} />}
+          />
+          <Route
+            exact
+            path="/admin-user-management"
+            component={(props) => <AdminTemplate {...props} Component={UserManagementComponent} />}
+          />
+          <Route
+            exact
+            path="/admin-movie-management"
+            component={(props) => <AdminTemplate {...props} Component={MovieManagementComponent} />}
+          />
         </Switch>
       </BrowserRouter>
     );

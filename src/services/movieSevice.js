@@ -8,6 +8,10 @@ export const getAllFilm = ()=>{
   return get('/QuanLyPhim/LayDanhSachPhim?maNhom=GP08')
 }
 
+export const getDetailFilm = (maPhim)=>{
+  return get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`)
+}
+
 export const addMovie = ()=>{
   return post('/QuanLyPhim/ThemPhim')
 }

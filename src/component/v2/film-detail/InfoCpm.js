@@ -1,14 +1,27 @@
 import React, { Component } from "react";
-import './style/infoCpm.scss';
+import "./style/infoCpm.scss";
 
 export default class InfoCpm extends Component {
   render() {
+    const {
+      // lichChieu,
+      // maPhim,
+      // biDanh,
+      // trailer,
+      // moTa,
+      // danhGia,
+      // maNhom,
+      hinhAnh,
+      ngayKhoiChieu,
+      tenPhim,
+    } = this.props.data;
+
     return (
       <div className="cm-info-cpm">
         <div className="detail-trailer">
           <img
             className="detail-background"
-            src="movie.HinhAnh"
+            src={hinhAnh}
             alt="detail img"
           />
           <div className="detail-trailer-bg" />
@@ -27,13 +40,13 @@ export default class InfoCpm extends Component {
               <div className="row">
                 <div className="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                   <div className="detail-review-img">
-                    <img src="movie.HinhAnh" alt="img" />
+                    <img src={hinhAnh} alt="img" />
                   </div>
                 </div>
                 <div className="col-lg-7 col-md-7 col-sm-6 col-xs-12 right-col">
                   <div className="detail-reivew-des">
                     <div className="detail-title">
-                      <h2> movie.TenPhim </h2>
+                      <h2>{tenPhim}</h2>
                     </div>
                     <div className="detail-rating">
                       <span className="fa fa-star" />
@@ -46,7 +59,7 @@ export default class InfoCpm extends Component {
                       <ul>
                         <li>
                           <span>Ngày phát hành :</span>
-                          <a href> movie.NgayKhoiChieu | date: "dd-MM-yyyy"</a>
+                          <span>{ngayKhoiChieu}</span>
                         </li>
                         <li>
                           <span>
