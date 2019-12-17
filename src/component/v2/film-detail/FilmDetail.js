@@ -25,7 +25,7 @@ export default class FilmDetail extends Component {
 
   componentDidMount() {
     let id = _.get(this.props, "params.id", "");
-    console.log(id);
+    // console.log(id);
     if (id) {
       getDetailFilm(id).then(({data}) => {
         console.log(data);

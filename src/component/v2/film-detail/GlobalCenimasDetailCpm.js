@@ -25,7 +25,7 @@ export default class GlobalCenimasDetailCpm extends Component {
                 const time = moment(i.ngayChieuGioChieu).format("HH:mm");
                 return (
                   <div className="col-2 mt-2">
-                    <Link to="/booking">
+                    <Link to={"/booking/" + i.maLichChieu}>
                       <span className="time">{time}</span>
                     </Link>
                   </div>
