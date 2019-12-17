@@ -1,8 +1,8 @@
 import { get, post, put ,deleted} from "./myMethod"
 
 
-export const Login = () => {
-  return post('/QuanLyNguoiDung/DangNhap')
+export const Login = (data) => {
+  return post('/QuanLyNguoiDung/DangNhap', data)
 }
 
 export const CreateUser = () => {

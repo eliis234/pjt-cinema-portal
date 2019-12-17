@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import "./styles/Header.scss";
 import ModalLogin from "./ModalLogin";
 // import { Button } from 'react-bootstrap';
+import { connect } from "react-redux";
 
-export default class Header extends Component {
+class Header extends Component {
+  _renderNameUser = () => {
+    let { userLogin } = this.props;
+    if (userLogin.hoTen) {
+      return (
+        <span className="user-login-name">{userLogin.hoTen}</span>
+      );
+    }
+    return (
+      <>
+        <ModalLogin />
+        <span className="sign-btn">Đăng ký</span>
+      </>
+    );
+  };
   render() {
     return (
       <header className="header">
@@ -45,17 +60,21 @@ export default class Header extends Component {
                 </span>
               </li>
             </ul>
-            <ModalLogin/>
-            <div className="sign">
-              <span className="sign-btn">Đăng nhập</span>
-              <span className="sign-btn">Đăng ký</span>
-            </div>
+            <div className="sign">{this._renderNameUser()}</div>
           </div>
         </nav>
       </header>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    userLogin: state.user.userLogin
+  };
+};
+
+export default connect(mapStateToProps, null)(Header);
 
 const DATA_NAV = [
   {
