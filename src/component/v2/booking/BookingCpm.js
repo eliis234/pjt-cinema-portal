@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import * as _ from "lodash";
 import { getDetailRooms } from "../../../services/movieSevice";
+import { connect } from "react-redux";
 import "./booking-cpm.scss";
 
-export default class BookingCpm extends Component {
+class BookingCpm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,13 +41,27 @@ export default class BookingCpm extends Component {
     const chairsBooking = this.state.chairsBooking;
     return chairsBooking.map((item, index) => {
       return (
-        <div key={index}>
-          <span>Ghế:{" " + item.stt}</span>
-          {" - "}
-          <span>Giá:{" " + item.giaVe}</span>
-        </div>
+        <span key={index}>
+          {item.stt}
+          {index < chairsBooking.length - 1 ? ", " : ""}
+        </span>
+        // <div>
+        //   <span key={index}>
+        //    {item.stt}
+        //   </span>
+        //   <span> - {item.giaVe}</span>
+        // </div>
       );
     });
+  }
+
+  _sumMoney() {
+    let { chairsBooking } = this.state;
+    let sum = 0;
+    for (let i = 0; i < chairsBooking.length; i++) {
+      sum += chairsBooking[i].giaVe;
+    }
+    return sum;
   }
 
   _onClickBooking = item => {
@@ -59,11 +74,27 @@ export default class BookingCpm extends Component {
       chairsBooking = chairsBooking.filter(i => i.maGhe !== item.maGhe);
     }
     this.setState({
-      chairsBooking: chairsBooking
+      chairsBooking: _.sortBy(chairsBooking, i => i.stt)
     });
   };
 
+  _onClickPriceSticker = () => {
+    let data = {
+      maLichChieu: 0,
+      danhSachVe: [],
+      taiKhoanNguoiDung: ""
+    };
+    data.maLichChieu = this.state.info.maLichChieu;
+    data.taiKhoanNguoiDung = this.props.userLogin.taiKhoan;
+    data.danhSachVe = this.state.chairsBooking.map(i => ({
+      maGhe: i.maGhe,
+      giaVe: i.giaVe
+    }));
+    console.log(data);
+  };
+
   render() {
+    console.log(this.props.userLogin);
     return (
       <div className="cm-booking-ticker-cpm">
         <div className="container bg-white p-4">
@@ -76,10 +107,30 @@ export default class BookingCpm extends Component {
             </div>
             <div className="col-4">
               <h3 className="title text-dark">Vé đã đặt</h3>
-              <div className="content-booking text-dark">
-                <h5>Ghế: </h5>
-                {this._renderBooking()}
+              <div className="text-dark">
+                <div className="content-booking">
+                  <h5>Ghế đã chọn: </h5>
+                  {this._renderBooking()}
+                </div>
+                <div className="content-booking">
+                  <h5>Số lượng ghế đã chọn: </h5>
+                  {this.state.chairsBooking.length}
+                </div>
+                <div className="content-booking">
+                  <h5>Tổng tiền: </h5>
+                  {this._sumMoney()}
+                </div>
               </div>
+              {this.state.chairsBooking.length > 0 ? (
+                <button
+                  className="btn btn-warning w-100"
+                  onClick={this._onClickPriceSticker}
+                >
+                  Đặt vé
+                </button>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
@@ -101,3 +152,11 @@ export default class BookingCpm extends Component {
     }
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    userLogin: state.user.userLogin
+  };
+};
+
+export default connect(mapStateToProps, null)(BookingCpm);
