@@ -67,9 +67,9 @@ export const updateMovies = () => {
 
 // Quản lý user
 //User đăng nhập
-export const loginUser = () => {
+export const loginUser = (data) => {
   return dispatch => {
-    Login()
+    Login(data)
       .then(res => {
         dispatch(reduxAction(LOG_IN, res.data));
       })

@@ -1,53 +1,51 @@
-import { LOG_IN } from "../constantReducer"
-import { CREATE_USER } from "../constantReducer"
-import { UPDATE_USER } from "../constantReducer"
-import { DETAIL_USER } from "../constantReducer"
-import { ADD_USER } from "../constantReducer"
-import {TYPE_USER} from "../constantReducer"
-
+import { LOG_IN } from "../constantReducer";
+import { CREATE_USER } from "../constantReducer";
+import { UPDATE_USER } from "../constantReducer";
+import { DETAIL_USER } from "../constantReducer";
+import { ADD_USER } from "../constantReducer";
+import { TYPE_USER } from "../constantReducer";
 
 const initState = {
-  users: []
-}
-export const userReducer = (state = initState, {type, data}) => {
+  users: [],
+  userLogin: {}
+};
+export const userReducer = (state = initState, { type, data }) => {
   switch (type) {
-     //LOG_IN
-     case LOG_IN: {
-      let users = data
-      state.users = users;
-      return {...state}
+    //LOG_IN
+    case LOG_IN: {
+      return { ...state, userLogin: data };
     }
-     //CREATE_USER
+    //CREATE_USER
     case CREATE_USER: {
-      let users = data
+      let users = data;
       state.users = users;
-      return {...state}
+      return { ...state };
     }
     //UPDATE_USER
     case UPDATE_USER: {
-      let users = data
+      let users = data;
       state.users = users;
-      return {...state}
+      return { ...state };
     }
-    //DETAIL_USER 
+    //DETAIL_USER
     case DETAIL_USER: {
-      let users = data
+      let users = data;
       state.users = users;
-      return {...state}
+      return { ...state };
     }
-    //ADD_USER 
+    //ADD_USER
     case ADD_USER: {
-      let users = data
+      let users = data;
       state.users = users;
-      return {...state}
+      return { ...state };
     }
-    //TYPE_USER 
+    //TYPE_USER
     case TYPE_USER: {
-      let users = data
+      let users = data;
       state.users = users;
-      return {...state}
+      return { ...state };
     }
-    default: return state
+    default:
+      return state;
   }
-
-}
+};

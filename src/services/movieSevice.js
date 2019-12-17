@@ -19,6 +19,10 @@ export const addMovie = ()=>{
 export const updateMovie = ()=>{
   return post('/QuanLyPhim/CapNhatPhim')
 }
+
+export const getDetailRooms = (maLichChieu)=>{
+  return get(`/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
+}
 const movieService = {
   getAllFilm, addMovie, updateMovie
 }

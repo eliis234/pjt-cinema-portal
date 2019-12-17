@@ -6,6 +6,7 @@ import { fetchAllMovies } from "./redux/reducer/action";
 
 import HomeCpm from "./component/v2/home/HomeCpm";
 import FilmDetail from "./component/v2/film-detail/FilmDetail";
+import BookingCpm from "./component/v2/booking/BookingCpm";
 import { AdminTemplate } from "./_core/template/templateAdmin";
 import IntroduceAdmin from "./component/v2/admin/IntroduceAdmin";
 import UserManagementComponent from "./component/v2/admin/UserManagementComponent";
@@ -26,6 +27,11 @@ class App extends Component {
             exact
             path="/detail/:id"
             component={(props) => <HomeTemplate {...props} Component={FilmDetail} />}
+          />
+          <Route
+            exact
+            path="/booking/:id"
+            component={(props) => <HomeTemplate {...props} Component={BookingCpm} />}
           />
           <Route
             exact

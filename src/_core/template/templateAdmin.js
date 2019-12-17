@@ -11,7 +11,7 @@ export class AdminTemplate extends React.Component {
         <div className="wrapper">
           <nav id="sidebar">
             <div className="sidebar-header">
-              <img src="../../../assets/images/logo6.png" alt="abc" />
+              <img src="/img/images/logo6.png" alt="abc" />
               <strong>TMN</strong>
             </div>
             <ul className="list-unstyled components">
