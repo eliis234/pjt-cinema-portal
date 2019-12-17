@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { connect } from "react-redux";
 import { fetchAllMovies } from "../../../redux/reducer/action";
 import * as _ from "lodash";
-import {delFilm} from '../../../services/movieSevice';
+import { delFilm } from '../../../services/movieSevice';
 
 class MovieManagementComponent extends Component {
   constructor(props) {
@@ -51,18 +51,18 @@ class MovieManagementComponent extends Component {
     res.data = _.get(this, "props.movies", []);
     return res;
   }
-  
+
   //handle
-  addMovie(data){
-    
+  addMovie(data) {
+
   }
 
-  removeMovie(maPhim){
+  removeMovie(maPhim) {
     delFilm(maPhim).then(res => {
       console.log(res);
     }).catch(error => {
       // console.log(error);
-      alert('fuck van cho dien')
+      alert('fuck thai cho dien')
     })
   }
   // event

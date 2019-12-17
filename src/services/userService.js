@@ -1,35 +1,39 @@
-import { get, post, put } from "./myMethod"
+import { get, post, put ,deleted} from "./myMethod"
 
 
-export const Login = ()=>{
+export const Login = () => {
   return post('/QuanLyNguoiDung/DangNhap')
 }
 
-export const CreateUser = ()=>{
+export const CreateUser = () => {
   return post('/QuanLyNguoiDung/DangKy')
 }
 
-export const UpdateUser = ()=>{
-  return put('/QuanLyNguoiDung/CapNhatThongTinNguoiDung')
+export const UpdateUser = (data) => {
+  return put('/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data)
 }
 
-export const ListUser = ()=>{
+export const ListUser = () => {
   return get('/QuanLyNguoiDung/LayDanhSachNguoiDung')
 }
 
-export const UserDetail = ()=>{
+export const UserDetail = () => {
   return post('/QuanLyNguoiDung/ThongTinTaiKhoan')
 }
 
-export const AddUser = ()=>{
-  return post('/QuanLyNguoiDung/ThemNguoiDung')
+export const AddUser = (data) => {
+  return post('/QuanLyNguoiDung/ThemNguoiDung',data)
 }
 
-export const UserType = ()=>{
- return get('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
+export const UserType = () => {
+  return get('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
 }
+export const delUser = (maPhim) => {
+  return deleted('/QuanLyPhim/XoaPhim', maPhim)
+}
+
 const userService = {
-  Login, CreateUser, UpdateUser, ListUser,UserDetail,AddUser,UserType
+  Login, CreateUser, UpdateUser, ListUser, UserDetail, AddUser, UserType, delUser
 }
 
 export default userService

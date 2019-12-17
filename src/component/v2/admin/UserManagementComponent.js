@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
 import './style/userManagement.scss'
 import MaterialTable from 'material-table';
-import { ListUser } from '../../../services/userService'
+import userService from '../../../services/userService'
 
 class UserManagementComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
       columns: [
-        { title: 'Name', field: 'name' },
-        { title: 'Surname', field: 'surname' },
-        { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-        {
-          title: 'Birth Place',
-          field: 'birthCity',
-          lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-        },
+        { title: 'Name', field: 'taiKhoan' },
+        { title: 'Email', field: 'email' },
+        { title: 'Họ tên', field: 'hoTen' },
+        { title: 'Mã loại người dùng', field: 'maLoaiNguoiDung' },
+        { title: 'Mã Nhóm', field: 'maNhom' },
+        { title: 'SDT', field: 'soDt' },
+        { title: 'Mật khẩu', field: 'matKhau' }
       ],
-      data: [
-        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-        {
-          name: 'Zerya Betül',
-          surname: 'Baran',
-          birthYear: 2017,
-          birthCity: 34,
-        },
-      ],
+      data: []
     }
+    this.onRowDelete = this.onRowDelete.bind(this)
+    this.onRowAdd = this.onRowAdd.bind(this)
+    this.onRowUpdate = this.onRowUpdate.bind(this)
   }
 
 
@@ -41,51 +35,97 @@ class UserManagementComponent extends Component {
           columns={this.state.columns}
           data={this.state.data}
           editable={{
-            onRowAdd: newData =>
-              new Promise(resolve => {
-                setTimeout(() => {
-                  resolve();
-                  this.setState(prevState => {
-                    const data = [...prevState.data];
-                    data.push(newData);
-                    return { ...prevState, data };
-                  });
-                }, 600);
-              }),
-            onRowUpdate: (newData, oldData) =>
-              new Promise(resolve => {
-                setTimeout(() => {
-                  resolve();
-                  if (oldData) {
-                    this.setState(prevState => {
-                      const data = [...prevState.data];
-                      data[data.indexOf(oldData)] = newData;
-                      return { ...prevState, data };
-                    });
-                  }
-                }, 600);
-              }),
-            onRowDelete: oldData =>
-              new Promise(resolve => {
-                setTimeout(() => {
-                  resolve();
-                  this.setState(prevState => {
-                    const data = [...prevState.data];
-                    data.splice(data.indexOf(oldData), 1);
-                    return { ...prevState, data };
-                  });
-                }, 600);
-              }),
+            onRowAdd: this.onRowAdd,
+            onRowUpdate: this.onRowUpdate,
+            onRowDelete: this.onRowDelete
           }}
         />
       </div>
     );
   }
 
-  componentWillMount() {
-    ListUser().then(res=>{
-      const {data} = res
+  removeUser(oldData) {
+    userService.delUser(oldData.taiKhoan).then(res => {
+      this.setState(prevState => {
+        const data = [...prevState.data];
+        data.splice(data.indexOf(oldData), 1);
+        return { ...prevState, data };
+      })
+    }).catch(error => {
+      // console.log(error);
+      alert('fuck thai cho dien')
+    })
+  }
+
+  updateUser(newData,oldData) {
+    userService.UpdateUser(newData).then(res => {
+      this.setState(prevState => {
+        const data = [...prevState.data];
+        data[data.indexOf(oldData)] = newData;
+        return { ...prevState, data };
+      })
+    }).catch(error => {
+      // console.log(error);
+      alert('fuck thai cho dien')
+    })
+  }
+
+  addUser(newData) {
+    console.log(newData);
+    
+    userService.AddUser(newData).then(res => {
+      this.setState(prevState => {
+        const data = [...prevState.data];
+        data.push(newData);
+        // this.addMovie(newData)
+        return { ...prevState, data };
+      });
+    }).catch(error => {
+      console.log(error);
+      alert('fuck thai cho dien')
+    })
+  }
+
+  // event
+  onRowAdd(newData) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+        this.addUser(newData);
+      }, 600);
+    });
+  }
+
+  onRowUpdate(newData, oldData) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+        if (oldData) {
+          this.updateUser(newData)
+          // this.setState(prevState => {
+          //   const data = [...prevState.data];
+          //   data[data.indexOf(oldData)] = newData;
+          //   return { ...prevState, data };
+          // });
+        }
+      }, 600);
+    });
+  }
+
+  onRowDelete(oldData) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+        this.removeUser(oldData);
+      }, 600);
+    });
+  }
+
+  componentDidMount() {
+    userService.ListUser().then(res => {
+      const { data } = res
       console.log(data);
+      this.setState({ data })
     })
   }
 }
