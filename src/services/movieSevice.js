@@ -1,4 +1,8 @@
-import { get, post } from "./myMethod"
+import { get, post, deleted } from "./myMethod"
+
+export const delFilm = (maPhim)=>{
+  return deleted('/QuanLyPhim/XoaPhim', maPhim)
+}
 
 export const getAllFilm = ()=>{
   return get('/QuanLyPhim/LayDanhSachPhim?maNhom=GP08')

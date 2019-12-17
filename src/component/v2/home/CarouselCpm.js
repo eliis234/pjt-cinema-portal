@@ -33,7 +33,6 @@ export default class CarouselCpm extends Component {
               <img src="/img/images/carousel/carousel3.jpg" alt="Mirror Edge" />
             </div>
           </OwlCarousel>
-
           <div className="booking-ticket">
             <div className="row m-0">
               <div className="col-sm-6 col-md-4">

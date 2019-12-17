@@ -4,11 +4,13 @@ import MaterialTable from "material-table";
 import { connect } from "react-redux";
 import { fetchAllMovies } from "../../../redux/reducer/action";
 import * as _ from "lodash";
+import {delFilm} from '../../../services/movieSevice';
 
 class MovieManagementComponent extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.onRowDelete = this.onRowDelete.bind(this);
+  }
 
   render() {
     const { columns, data } = this.getDataRenderTable();
@@ -49,6 +51,20 @@ class MovieManagementComponent extends Component {
     res.data = _.get(this, "props.movies", []);
     return res;
   }
+  
+  //handle
+  addMovie(data){
+    
+  }
+
+  removeMovie(maPhim){
+    delFilm(maPhim).then(res => {
+      console.log(res);
+    }).catch(error => {
+      // console.log(error);
+      alert('fuck van cho dien')
+    })
+  }
   // event
   onRowAdd(newData) {
     return new Promise(resolve => {
@@ -57,6 +73,7 @@ class MovieManagementComponent extends Component {
         this.setState(prevState => {
           const data = [...prevState.data];
           data.push(newData);
+          // this.addMovie(newData)
           return { ...prevState, data };
         });
       }, 600);
@@ -82,11 +99,13 @@ class MovieManagementComponent extends Component {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
-        this.setState(prevState => {
-          const data = [...prevState.data];
-          data.splice(data.indexOf(oldData), 1);
-          return { ...prevState, data };
-        });
+        console.log(oldData.maPhim);
+        this.removeMovie(oldData.maPhim);
+        // this.setState(prevState => {
+        //   const data = [...prevState.data];
+        //   data.splice(data.indexOf(oldData), 1);
+        //   return { ...prevState, data };
+        // });
       }, 600);
     });
   }
