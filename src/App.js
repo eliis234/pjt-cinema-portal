@@ -9,9 +9,9 @@ import FilmDetail from "./component/v2/film-detail/FilmDetail";
 import BookingCpm from "./component/v2/booking/BookingCpm";
 import { AdminTemplate } from "./_core/template/templateAdmin";
 import IntroduceAdmin from "./component/v2/admin/IntroduceAdmin";
+import Storybook from "./component/v2/admin/StoryBook";
 import UserManagementComponent from "./component/v2/admin/UserManagementComponent";
 import MovieManagementComponent from "./component/v2/admin/MovieManagementComponent";
-import BookingCpm from "./component/v2/home/BookingCpm"
 
 class App extends Component {
   render() {
@@ -40,13 +40,18 @@ class App extends Component {
           />
           <Route
             exact
+            path="/admin"
+            component={(props) => <AdminTemplate {...props} Component={Storybook} />}
+          />
+          <Route
+            exact
             path="/admin-user-management"
             component={(props) => <AdminTemplate {...props} Component={UserManagementComponent} />}
           />
           <Route
             exact
-            path="/booking"
-            component={(props) => <HomeTemplate {...props} Component={BookingCpm} />}
+            path="/admin-movie-management"
+            component={(props) => <AdminTemplate {...props} Component={MovieManagementComponent} />}
           />
         </Switch>
       </BrowserRouter>
