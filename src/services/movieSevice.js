@@ -12,12 +12,12 @@ export const getDetailFilm = (maPhim)=>{
   return get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`)
 }
 
-export const addMovie = ()=>{
-  return post('/QuanLyPhim/ThemPhim')
+export const addMovie = (data)=>{
+  return post('/QuanLyPhim/ThemPhim',data)
 }
 
-export const updateMovie = ()=>{
-  return post('/QuanLyPhim/CapNhatPhim')
+export const updateMovie = (data)=>{
+  return post('/QuanLyPhim/CapNhatPhim',data)
 }
 
 export const getDetailRooms = (maLichChieu)=>{

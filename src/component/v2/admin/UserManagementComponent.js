@@ -8,7 +8,7 @@ class UserManagementComponent extends Component {
     super(props)
     this.state = {
       columns: [
-        { title: 'Name', field: 'taiKhoan' },
+        { title: 'Tài khoản', field: 'taiKhoan' },
         { title: 'Email', field: 'email' },
         { title: 'Họ tên', field: 'hoTen' },
         { title: 'Mã loại người dùng', field: 'maLoaiNguoiDung' },
@@ -52,8 +52,8 @@ class UserManagementComponent extends Component {
         return { ...prevState, data };
       })
     }).catch(error => {
-      // console.log(error);
-      alert('fuck thai cho dien')
+      console.log(error);
+      alert('Tài khoản không được xóa')
     })
   }
 
@@ -66,7 +66,7 @@ class UserManagementComponent extends Component {
       })
     }).catch(error => {
       // console.log(error);
-      alert('fuck thai cho dien')
+      alert('Tài khoản không được sửa')
     })
   }
 
@@ -77,12 +77,11 @@ class UserManagementComponent extends Component {
       this.setState(prevState => {
         const data = [...prevState.data];
         data.push(newData);
-        // this.addMovie(newData)
         return { ...prevState, data };
       });
     }).catch(error => {
       console.log(error);
-      alert('fuck thai cho dien')
+      alert('Tài khoản không được thêm mới')
     })
   }
 
@@ -102,11 +101,6 @@ class UserManagementComponent extends Component {
         resolve();
         if (oldData) {
           this.updateUser(newData)
-          // this.setState(prevState => {
-          //   const data = [...prevState.data];
-          //   data[data.indexOf(oldData)] = newData;
-          //   return { ...prevState, data };
-          // });
         }
       }, 600);
     });
