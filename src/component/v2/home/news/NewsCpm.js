@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from 'react'
-import NewNewCpm from './NewNewCpm'
-import ReviewNewCpm from './ReviewNewCpm'
-=======
 import React, { Component } from "react";
 import "./news.scss";
->>>>>>> 0d98637f76ba4bf81db4306094c92b2fa54d9256
 
 const news1 = [
   {
@@ -82,12 +76,6 @@ const news3 = [
 export default class GlobalCenimasCpm extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div>
-        <NewNewCpm/>
-        <hr/>
-        <ReviewNewCpm/>
-=======
       <div className="cm-news-cpm mt-5">
         <div className="container">
           <div className="row">
@@ -149,7 +137,6 @@ export default class GlobalCenimasCpm extends Component {
             </div>
           </div>
         </div>
->>>>>>> 0d98637f76ba4bf81db4306094c92b2fa54d9256
       </div>
     );
   }

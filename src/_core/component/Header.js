@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/Header.scss";
+import ModalLogin from "./ModalLogin";
 // import { Button } from 'react-bootstrap';
 
 export default class Header extends Component {
@@ -44,6 +45,7 @@ export default class Header extends Component {
                 </span>
               </li>
             </ul>
+            <ModalLogin/>
             <div className="sign">
               <span className="sign-btn">Đăng nhập</span>
               <span className="sign-btn">Đăng ký</span>
