@@ -4,6 +4,7 @@ import { UPDATE_USER } from "../constantReducer";
 import { DETAIL_USER } from "../constantReducer";
 import { ADD_USER } from "../constantReducer";
 import { TYPE_USER } from "../constantReducer";
+import { setAccessToken } from "../../services/myMethod";
 
 const initState = {
   users: [],
@@ -13,6 +14,7 @@ export const userReducer = (state = initState, { type, data }) => {
   switch (type) {
     //LOG_IN
     case LOG_IN: {
+      setAccessToken(data.accessToken);
       return { ...state, userLogin: data };
     }
     //CREATE_USER

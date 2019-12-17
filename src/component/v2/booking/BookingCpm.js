@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import * as _ from "lodash";
-import { getDetailRooms } from "../../../services/movieSevice";
+import { getDetailRooms, bookingTicker } from "../../../services/movieSevice";
 import { connect } from "react-redux";
 import "./booking-cpm.scss";
+import { Link } from "react-router-dom";
 
 class BookingCpm extends Component {
   constructor(props) {
@@ -79,18 +80,50 @@ class BookingCpm extends Component {
   };
 
   _onClickPriceSticker = () => {
+    let tk = this.props.userLogin.taiKhoan;
+    if (!tk) {
+      alert("Bạn chưa đăng nhập");
+      let btn = document.getElementById("btnLoginUser");
+      btn.click();
+      return;
+    }
+
+    let chairsBooking = this.state.chairsBooking;
+    if (chairsBooking.length === 0) {
+      alert("Vui lòng chọn ghế");
+      return;
+    }
+
+    // exact
     let data = {
       maLichChieu: 0,
       danhSachVe: [],
       taiKhoanNguoiDung: ""
     };
     data.maLichChieu = this.state.info.maLichChieu;
-    data.taiKhoanNguoiDung = this.props.userLogin.taiKhoan;
-    data.danhSachVe = this.state.chairsBooking.map(i => ({
+    data.taiKhoanNguoiDung = tk;
+    data.danhSachVe = chairsBooking.map(i => ({
       maGhe: i.maGhe,
       giaVe: i.giaVe
     }));
-    console.log(data);
+    // console.log(data);
+    bookingTicker(data)
+      .then(res => {
+        console.log(res);
+        let id = _.get(this.props, "params.id", "");
+        if (id) {
+          getDetailRooms(id).then(({ data }) => {
+            console.log("api tra ve chi tiet lich chieu phim: ", data);
+            this.setState({
+              chairs: data.danhSachGhe,
+              info: data.thongTinPhim
+            });
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -101,6 +134,7 @@ class BookingCpm extends Component {
           <div className="row">
             <div className="col-8">
               <div className="content-chair">
+                <Link to="/admin-movie-management">move</Link>
                 <h3 className="title text-dark">Danh sách ghế</h3>
                 <div className="content">{this._renderChair()}</div>
               </div>

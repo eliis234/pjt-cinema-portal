@@ -57,7 +57,7 @@ function ModalLogin(props) {
 
   return (
     <div className="cm-modal-login-cpm text-dark">
-      <button type="button" onClick={handleOpen} className="sign-btn">
+      <button id="btnLoginUser" type="button" onClick={handleOpen} className="sign-btn">
         Đăng nhập
       </button>
       <Modal
