@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import * as _ from "lodash";
-import { getDetailRooms } from "../../../services/movieSevice";
+import { getDetailRooms, bookingTicker } from "../../../services/movieSevice";
 import { connect } from "react-redux";
 import "./booking-cpm.scss";
+import { Link } from "react-router-dom";
 
 class BookingCpm extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class BookingCpm extends Component {
     };
   }
 
+  //render ra ghế
   _renderChair() {
     return this.state.chairs.slice(0, 50).map((item, index) => {
       const { daDat, stt } = item;
@@ -36,7 +38,7 @@ class BookingCpm extends Component {
       );
     });
   }
-
+//render ghế đã book
   _renderBooking() {
     const chairsBooking = this.state.chairsBooking;
     return chairsBooking.map((item, index) => {
@@ -54,7 +56,8 @@ class BookingCpm extends Component {
       );
     });
   }
-
+// end **
+// tổng tiền
   _sumMoney() {
     let { chairsBooking } = this.state;
     let sum = 0;
@@ -63,7 +66,10 @@ class BookingCpm extends Component {
     }
     return sum;
   }
+// end tổng tiền
 
+
+// click để đặt ghế
   _onClickBooking = item => {
     let { chairsBooking } = this.state;
     let index = chairsBooking.findIndex(i => i.maGhe === item.maGhe);
@@ -77,22 +83,57 @@ class BookingCpm extends Component {
       chairsBooking: _.sortBy(chairsBooking, i => i.stt)
     });
   };
+// End 
 
+
+// mua vé
   _onClickPriceSticker = () => {
+    let tk = this.props.userLogin.taiKhoan;
+    if (!tk) {
+      alert("Bạn chưa đăng nhập");
+      let btn = document.getElementById("btnLoginUser");
+      btn.click();
+      return;
+    }
+
+    let chairsBooking = this.state.chairsBooking;
+    if (chairsBooking.length === 0) {
+      alert("Vui lòng chọn ghế");
+      return;
+    }
+
+    // exact
     let data = {
       maLichChieu: 0,
       danhSachVe: [],
       taiKhoanNguoiDung: ""
     };
     data.maLichChieu = this.state.info.maLichChieu;
-    data.taiKhoanNguoiDung = this.props.userLogin.taiKhoan;
-    data.danhSachVe = this.state.chairsBooking.map(i => ({
+    data.taiKhoanNguoiDung = tk;
+    data.danhSachVe = chairsBooking.map(i => ({
       maGhe: i.maGhe,
       giaVe: i.giaVe
     }));
-    console.log(data);
+    // console.log(data);
+    bookingTicker(data)
+      .then(res => {
+        console.log(res);
+        let id = _.get(this.props, "params.id", "");
+        if (id) {
+          getDetailRooms(id).then(({ data }) => {
+            console.log("api tra ve chi tiet lich chieu phim: ", data);
+            this.setState({
+              chairs: data.danhSachGhe,
+              info: data.thongTinPhim
+            });
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
-
+// enddd
   render() {
     console.log(this.props.userLogin);
     return (
@@ -101,6 +142,7 @@ class BookingCpm extends Component {
           <div className="row">
             <div className="col-8">
               <div className="content-chair">
+                <Link to="/admin-movie-management">move</Link>
                 <h3 className="title text-dark">Danh sách ghế</h3>
                 <div className="content">{this._renderChair()}</div>
               </div>
@@ -139,11 +181,13 @@ class BookingCpm extends Component {
     );
   }
 
+
+  
   componentDidMount() {
     let id = _.get(this.props, "params.id", "");
     if (id) {
       getDetailRooms(id).then(({ data }) => {
-        console.log("api tra ve chi tiet lich chieu phim: ", data);
+        console.log("Api trả về chi tiếc lịch chiếu phim: ", data);
         this.setState({
           chairs: data.danhSachGhe,
           info: data.thongTinPhim

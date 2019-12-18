@@ -3,6 +3,7 @@ import "./styles/Header.scss";
 import ModalLogin from "./ModalLogin";
 // import { Button } from 'react-bootstrap';
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 
 class Header extends Component {
   _renderNameUser = () => {
@@ -15,7 +16,7 @@ class Header extends Component {
     return (
       <>
         <ModalLogin />
-        <span className="sign-btn">Đăng ký</span>
+        {/* <span className="sign-btn">Đăng ký</span> */}
       </>
     );
   };
@@ -36,7 +37,7 @@ class Header extends Component {
               {DATA_NAV.map((i, idx) => {
                 return (
                   <li className="nav-item" key={idx}>
-                    <span className="nav-link">{i.name}</span>
+                    <Link className="nav-link" to = {i.link}>{i.name}</Link>
                   </li>
                 );
               })}
@@ -79,18 +80,18 @@ export default connect(mapStateToProps, null)(Header);
 const DATA_NAV = [
   {
     name: "Trang chủ",
-    link: "/home"
+    link: "/"
   },
   {
     name: "Lịch chiếu",
-    link: ""
+    link: "/"
   },
   {
     name: "Cụm rạp",
-    link: ""
+    link: "/"
   },
   {
     name: "Tin tức",
-    link: ""
+    link: "/"
   }
 ];

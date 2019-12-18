@@ -1,8 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ModalLogin from "../component/ModalLogin";
 import "./styles/admin.scss";
+import * as _ from 'lodash';
+import { connect } from "react-redux";
 
 export class AdminTemplate extends React.Component {
+  _renderNameUser = () => {
+    let userLogin = _.get(this.props, 'userLogin', false);
+    console.log(userLogin)
+    if (userLogin) {
+      return <span className="user-login-name">{userLogin.hoTen}</span>;
+    }
+    return <ModalLogin />;
+  };
   render() {
     // console.log(this.props);
     const Cmp = this.props.Component;
@@ -44,14 +55,17 @@ export class AdminTemplate extends React.Component {
           <div id="content">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="container-fluid">
-                <button type="button" id="sidebarCollapse" className="btn btn-info">
+                <button
+                  type="button"
+                  id="sidebarCollapse"
+                  className="btn btn-info"
+                >
                   <i className="fa fa-bars"></i>
                 </button>
-                <button
-                  className="btn btn-dark d-inline-block d-lg-none ml-auto"
-                >
+                <button className="btn btn-dark d-inline-block d-lg-none ml-auto">
                   <i className="fas fa-align-justify"></i>
                 </button>
+                {this._renderNameUser()}
               </div>
             </nav>
             <div className="container mb-4">
@@ -63,3 +77,11 @@ export class AdminTemplate extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    userLogin: state.user.userLogin
+  };
+};
+
+export default connect(mapStateToProps, null)(AdminTemplate);

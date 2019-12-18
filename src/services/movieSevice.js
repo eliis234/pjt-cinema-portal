@@ -23,6 +23,10 @@ export const updateMovie = (data)=>{
 export const getDetailRooms = (maLichChieu)=>{
   return get(`/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
 }
+
+export const bookingTicker = (data)=>{
+  return post(`/QuanLyDatVe/DatVe`, data)
+}
 const movieService = {
   getAllFilm, addMovie, updateMovie
 }

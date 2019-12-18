@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style/userManagement.scss'
 import MaterialTable from 'material-table';
 import userService from '../../../services/userService'
+import * as _ from 'lodash';
 
 class UserManagementComponent extends Component {
   constructor(props) {
@@ -44,6 +45,14 @@ class UserManagementComponent extends Component {
     );
   }
 
+  _fetchUser(){
+    userService.ListUser().then(res => {
+      const { data } = res
+      console.log(data);
+      this.setState({ data })
+    })
+  }
+
   removeUser(oldData) {
     userService.delUser(oldData.taiKhoan).then(res => {
       this.setState(prevState => {
@@ -59,21 +68,19 @@ class UserManagementComponent extends Component {
 
   updateUser(newData,oldData) {
     userService.UpdateUser(newData).then(res => {
-      this.setState(prevState => {
-        const data = [...prevState.data];
-        data[data.indexOf(oldData)] = newData;
-        return { ...prevState, data };
-      })
+      alert('Tk đã được update')
+      this._fetchUser();      
     }).catch(error => {
-      // console.log(error);
-      alert('Tài khoản không được sửa')
+      console.log(error);
+      let tb = _.get(error, 'response.data', 'Tài khoản không được sửa')
+      alert(tb);
     })
   }
 
   addUser(newData) {
     console.log(newData);
-    
     userService.AddUser(newData).then(res => {
+      console.log(res)
       this.setState(prevState => {
         const data = [...prevState.data];
         data.push(newData);
@@ -116,11 +123,7 @@ class UserManagementComponent extends Component {
   }
 
   componentDidMount() {
-    userService.ListUser().then(res => {
-      const { data } = res
-      console.log(data);
-      this.setState({ data })
-    })
+    this._fetchUser()
   }
 }
 

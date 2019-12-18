@@ -44,6 +44,7 @@ function ModalLogin(props) {
   };
 
   const submited = e => {
+    handleClose()
     e.preventDefault();
     // Login(dataSubmit)
     //   .then(res => {
@@ -52,12 +53,18 @@ function ModalLogin(props) {
     //   .catch(error => {
     //     console.log(error);
     //   });
+
     props.dispatch(loginUser(dataSubmit));
   };
 
   return (
     <div className="cm-modal-login-cpm text-dark">
-      <button type="button" onClick={handleOpen} className="sign-btn">
+      <button
+        id="btnLoginUser"
+        type="button"
+        onClick={handleOpen}
+        className="sign-btn"
+      >
         Đăng nhập
       </button>
       <Modal
