@@ -5,14 +5,26 @@ import "./styles/admin.scss";
 import * as _ from 'lodash';
 import { connect } from "react-redux";
 
-export class AdminTemplate extends React.Component {
-  _renderNameUser = () => {
-    let userLogin = _.get(this.props, 'userLogin', false);
+function Login(props) {
+  let userLogin = _.get(props, 'userLogin.hoTen', false);
     console.log(userLogin)
     if (userLogin) {
-      return <span className="user-login-name">{userLogin.hoTen}</span>;
+      return <span className="user-login-name">{userLogin}</span>;
     }
     return <ModalLogin />;
+}
+
+
+const mapStateToProps = state => {
+  return {
+    userLogin: state.user.userLogin
+  };
+};
+let LoginUser = connect(mapStateToProps, null)(Login);
+
+export class AdminTemplate extends React.Component {
+  _renderNameUser = () => {
+    return <LoginUser/>
   };
   render() {
     // console.log(this.props);
@@ -72,10 +84,4 @@ export class AdminTemplate extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    userLogin: state.user.userLogin
-  };
-};
-
-export default connect(mapStateToProps, null)(AdminTemplate);
+export default AdminTemplate
