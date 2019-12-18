@@ -80,15 +80,12 @@ class UserManagementComponent extends Component {
   addUser(newData) {
     console.log(newData);
     userService.AddUser(newData).then(res => {
-      console.log(res)
-      this.setState(prevState => {
-        const data = [...prevState.data];
-        data.push(newData);
-        return { ...prevState, data };
-      });
+      alert('Tk đã được thêm')
+      this._fetchUser()
     }).catch(error => {
       console.log(error);
-      alert('Tài khoản không được thêm mới')
+      let tb = _.get(error, 'response.data', 'Tài khoản này đã tồn tại')
+      alert(tb)
     })
   }
 
