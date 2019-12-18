@@ -4,6 +4,7 @@ import ModalLogin from "./ModalLogin";
 // import { Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import {Link} from "react-router-dom";
+import ModalSignUp from "./ModalSignUp";
 
 class Header extends Component {
   _renderNameUser = () => {
@@ -16,7 +17,7 @@ class Header extends Component {
     return (
       <>
         <ModalLogin />
-        {/* <span className="sign-btn">Đăng ký</span> */}
+        <ModalSignUp />
       </>
     );
   };

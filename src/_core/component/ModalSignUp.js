@@ -26,7 +26,12 @@ function ModalSignUp(props) {
   const [open, setOpen] = React.useState(false);
   const dataSubmit = {
     taiKhoan: "",
-    matKhau: ""
+    matKhau: "",
+    email: "",
+    soDt: "",
+    maNhom: "",
+    maLoaiNguoiDung: "",
+    hoTen: ""
   };
 
   const handleOpen = () => {
@@ -44,7 +49,7 @@ function ModalSignUp(props) {
   };
 
   const submited = e => {
-    handleClose()
+    handleClose();
     e.preventDefault();
     // Login(dataSubmit)
     //   .then(res => {
@@ -54,7 +59,7 @@ function ModalSignUp(props) {
     //     console.log(error);
     //   });
 
-    props.dispatch(loginUser(dataSubmit));
+    // props.dispatch(loginUser(dataSubmit));
   };
 
   return (
@@ -65,7 +70,7 @@ function ModalSignUp(props) {
         onClick={handleOpen}
         className="sign-btn"
       >
-        Đăng nhập
+        Đăng ký
       </button>
       <Modal
         aria-labelledby="transition-modal-title"

@@ -124,7 +124,8 @@ class BookingCpm extends Component {
             console.log("api tra ve chi tiet lich chieu phim: ", data);
             this.setState({
               chairs: data.danhSachGhe,
-              info: data.thongTinPhim
+              info: data.thongTinPhim,
+              chairsBooking: []
             });
           });
         }
