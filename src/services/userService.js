@@ -5,8 +5,8 @@ export const Login = (data) => {
   return post('/QuanLyNguoiDung/DangNhap', data)
 }
 
-export const CreateUser = () => {
-  return post('/QuanLyNguoiDung/DangKy')
+export const CreateUser = (data) => {
+  return post('/QuanLyNguoiDung/DangKy', data)
 }
 
 export const UpdateUser = (data) => {
@@ -28,8 +28,8 @@ export const AddUser = (data) => {
 export const UserType = () => {
   return get('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
 }
-export const delUser = (maPhim) => {
-  return deleted('/QuanLyPhim/XoaPhim', maPhim)
+export const delUser = (TaiKhoan) => {
+  return deleted(`/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${TaiKhoan}`)
 }
 
 const userService = {

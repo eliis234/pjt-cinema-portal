@@ -4,8 +4,9 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { loginUser } from "../../redux/reducer/action";
-// import { Login } from "../../services/userService";
+import { CreateUser } from "../../services/userService";
 import { connect } from "react-redux";
+import * as _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -29,8 +30,8 @@ function ModalSignUp(props) {
     matKhau: "",
     email: "",
     soDt: "",
-    maNhom: "",
-    maLoaiNguoiDung: "",
+    maNhom: "GP08",
+    maLoaiNguoiDung: "KhachHang",
     hoTen: ""
   };
 
@@ -51,21 +52,22 @@ function ModalSignUp(props) {
   const submited = e => {
     handleClose();
     e.preventDefault();
-    // Login(dataSubmit)
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-
-    // props.dispatch(loginUser(dataSubmit));
+    CreateUser(dataSubmit).then(res => {
+      console.log(res);
+      alert('Vui Long Dang Nhap Tai Khoan')
+      let btn = document.getElementById("btnLoginUser");
+      btn.click();
+    }).catch(error => {
+      console.log(error);
+      let tb = _.get(error, 'response.data', 'Tài khoản này đã tồn tại')
+      alert(tb)
+    })
   };
 
   return (
     <div className="cm-modal-login-cpm text-dark">
       <button
-        id="btnLoginUser"
+        id="btnSignUp"
         type="button"
         onClick={handleOpen}
         className="sign-btn"
@@ -116,6 +118,43 @@ function ModalSignUp(props) {
                   onChange={onChangeInput}
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Email</label>
+                <input
+                  type="input"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  name="email"
+                  onChange={onChangeInput}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Số điện thoại</label>
+                <input
+                  type="input"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  name="soDt"
+                  onChange={onChangeInput}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Họ tên</label>
+                <input
+                  type="input"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  name="hoTen"
+                  onChange={onChangeInput}
+                />
+              </div>
+              
+              <button className="btn btn-primary" onClick={handleClose}>
+                Cancel
+              </button>
               <button className="btn btn-primary" onClick={submited}>
                 Submit
               </button>

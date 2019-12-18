@@ -1,7 +1,7 @@
 import { get, post, deleted } from "./myMethod"
 
 export const delFilm = (maPhim)=>{
-  return deleted('/QuanLyPhim/XoaPhim', maPhim)
+  return deleted(`/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`)
 }
 
 export const getAllFilm = ()=>{

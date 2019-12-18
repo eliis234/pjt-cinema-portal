@@ -79,9 +79,9 @@ export const loginUser = (data) => {
   };
 };
 //tạo account
-export const createUser = () => {
+export const createUser = (data) => {
   return dispatch => {
-    CreateUser()
+    CreateUser(data)
       .then(res => {
         dispatch(reduxAction(CREATE_USER, res.data));
       })

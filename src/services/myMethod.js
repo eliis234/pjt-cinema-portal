@@ -12,8 +12,8 @@ export const setAccessToken = auth_token => {
   };
 };
 
-export const deleted = (url, data) => {
-  return axios.delete(`${domain}${url}?MaPhim=${data}`, config);
+export const deleted = (url) => {
+  return axios.delete(domain + url, config);
 };
 
 export const get = url => {

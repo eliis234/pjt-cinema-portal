@@ -55,11 +55,7 @@ class UserManagementComponent extends Component {
 
   removeUser(oldData) {
     userService.delUser(oldData.taiKhoan).then(res => {
-      this.setState(prevState => {
-        const data = [...prevState.data];
-        data.splice(data.indexOf(oldData), 1);
-        return { ...prevState, data };
-      })
+      this._fetchUser()
     }).catch(error => {
       console.log(error);
       alert('Tài khoản không được xóa')
