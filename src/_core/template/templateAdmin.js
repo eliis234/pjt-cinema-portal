@@ -2,15 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ModalLogin from "../component/ModalLogin";
 import "./styles/admin.scss";
+import * as _ from 'lodash';
 import { connect } from "react-redux";
 
 export class AdminTemplate extends React.Component {
   _renderNameUser = () => {
-    let { userLogin } = this.props;
+    let userLogin = _.get(this.props, 'userLogin', false);
     console.log(userLogin)
-    // if (userLogin.hoTen) {
-    //   return <span className="user-login-name">{userLogin.hoTen}</span>;
-    // }
+    if (userLogin) {
+      return <span className="user-login-name">{userLogin.hoTen}</span>;
+    }
     return <ModalLogin />;
   };
   render() {
