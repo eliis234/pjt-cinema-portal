@@ -56,6 +56,12 @@ export class AdminTemplate extends React.Component {
                   Phim
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/history" activeClassName="active">
+                  <i className="fa fa-film"></i>
+                  Lịch sử  đặt vé
+                </NavLink>
+              </li>
             </ul>
           </nav>
           <div id="content">

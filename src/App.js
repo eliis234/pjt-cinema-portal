@@ -40,7 +40,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/admin"
+            path="/history"
             component={(props) => <AdminTemplate {...props} Component={Storybook} />}
           />
           <Route
