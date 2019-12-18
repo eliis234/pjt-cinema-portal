@@ -14,6 +14,7 @@ export const userReducer = (state = initState, { type, data }) => {
   switch (type) {
     //LOG_IN
     case LOG_IN: {
+      console.log(data);
       setAccessToken(data.accessToken);
       return { ...state, userLogin: data };
     }

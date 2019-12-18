@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <>
         <ModalLogin />
-        <span className="sign-btn">Đăng ký</span>
+        {/* <span className="sign-btn">Đăng ký</span> */}
       </>
     );
   };

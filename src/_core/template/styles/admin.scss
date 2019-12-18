@@ -1,4 +1,18 @@
 .cm-tp-admin {
+  .sign-btn{
+    background: #007bff;
+    border: none;
+    padding: 5px 10px;
+    min-width: 75px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .user-login-name{
+    color: #000000;
+    font-size: 18px;
+  }
+  
   .wrapper {
     display: flex;
     align-items: stretch;

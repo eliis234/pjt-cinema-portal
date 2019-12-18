@@ -72,8 +72,8 @@ class UserManagementComponent extends Component {
 
   addUser(newData) {
     console.log(newData);
-    
     userService.AddUser(newData).then(res => {
+      console.log(res)
       this.setState(prevState => {
         const data = [...prevState.data];
         data.push(newData);
