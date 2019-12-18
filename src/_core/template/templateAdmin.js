@@ -16,6 +16,8 @@ function Login(props) {
 
 
 const mapStateToProps = state => {
+  console.log(state.user);
+  
   return {
     userLogin: state.user.userLogin
   };
